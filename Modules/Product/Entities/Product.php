@@ -98,7 +98,7 @@ class Product extends Model
      */
     protected $appends = [
         'base_image', 'formatted_price', 'rating_percent', 'is_in_stock', 'is_out_of_stock',
-        'is_new', 'has_percentage_special_price', 'special_price_percent',
+        'is_new', 'has_percentage_special_price', 'special_price_percent', 'public_resources'
     ];
 
     /**
@@ -163,6 +163,7 @@ class Product extends Model
     {
         $query->withName()
             ->withBaseImage()
+            ->withPublicResources()
             ->withPrice()
             ->withCount('options')
             ->with('reviews')
@@ -198,6 +199,13 @@ class Product extends Model
     {
         $query->with(['files' => function ($q) {
             $q->wherePivot('zone', 'base_image');
+        }]);
+    }
+
+    public function scopeWithPublicResources($query)
+    {
+        $query->with(['files' => function ($q) {
+            $q->wherePivot('zone', 'public_resources');
         }]);
     }
 
@@ -592,6 +600,7 @@ class Product extends Model
             ->withoutGlobalScope('active')
             ->withName()
             ->withBaseImage()
+            ->withPublicResources()
             ->withPrice()
             ->addSelect(['id', 'is_active', 'created_at'])
             ->when($request->has('except'), function ($query) use ($request) {

@@ -8,11 +8,11 @@
                 </div>
             </div>
             <div class="row">
-                <div v-for="(category, index) in data.categories" :key="index" class="product-table col-sm">
-                    <table class="table table-responsive">
+                <div v-for="(category, index) in data.categories" :key="index" class="product-table table-responsive col-sm">
+                    <table class="table">
                         <tr>
                             <th>
-                                <h5>{{ category.name }}</h5>
+                                <h5><a :href="categoryUrl(category.slug)">{{ category.name }}</a></h5>
                             </th>
                         </tr>
                         <tr v-for="(product, id) in allProducts[index]" :key="id">
@@ -48,6 +48,10 @@
 
             productUrl(slug) {
                 return route('products.show', slug);
+            },
+
+            categoryUrl(slug) {
+                return route('categories.products.index', slug);
             },
 
             getProducts () {

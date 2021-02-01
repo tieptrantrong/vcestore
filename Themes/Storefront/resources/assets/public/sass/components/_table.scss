@@ -32,3 +32,24 @@
 		border-color: $color-gray-lite;
 	}
 }
+
+.product-table {
+    td, th {
+        text-align: center;
+	}
+	margin-top: 30px;
+	th {
+		a {
+			color: $color-black;
+		}
+	}
+	td {
+		a {
+			color: $color-default;
+		}
+	}
+}
+
+.table-view-products {
+	margin-bottom: 30px;
+}

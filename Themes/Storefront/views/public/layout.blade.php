@@ -68,6 +68,9 @@
                     'storefront::product_card.hours': '{{ trans("storefront::product_card.hours") }}',
                     'storefront::product_card.minutes': '{{ trans("storefront::product_card.minutes") }}',
                     'storefront::product_card.seconds': '{{ trans("storefront::product_card.seconds") }}',
+                    'storefront::product_card.title_product': '{{ trans("storefront::product_card.title_product") }}',
+                    'storefront::product_card.title_exam': '{{ trans("storefront::product_card.title_exam") }}',
+                    'storefront::product_card.title_files': '{{ trans("storefront::product_card.title_files") }}',
                 },
             };
         </script>
