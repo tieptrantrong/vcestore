@@ -11,16 +11,6 @@
 		}
 	}
 
-    tbody {
-        tr {
-            &:first-child {
-                td {
-                    padding-top: 30px;
-                }
-            }
-        }
-    }
-
 	th {
         font-weight: 500;
         padding: 15px 30px;
@@ -48,6 +38,11 @@
 			color: $color-default;
 		}
 	}
+	tr:hover {background-color:#f7f7f9;}
+}
+
+.table-products {
+	tr:hover {background-color:#f7f7f9;}
 }
 
 .table-view-products {

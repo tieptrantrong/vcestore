@@ -51,7 +51,7 @@ class Category extends Model
      *
      * @var array
      */
-    protected $translatedAttributes = ['name'];
+    protected $translatedAttributes = ['name', 'description', 'short_description'];
 
     /**
      * The attribute that will be slugged.
@@ -117,6 +117,8 @@ class Category extends Model
                         return [
                             'slug' => $category->slug,
                             'name' => $category->name,
+                            'description' => $category->description,
+                            'short_description' => $category->short_description,
                         ];
                     });
             });

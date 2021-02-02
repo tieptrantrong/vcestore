@@ -29,31 +29,16 @@
         initial-tag-slug="{{ request('tag') }}"
         :initial-attribute="{{ json_encode(request('attribute', [])) }}"
         :max-price="{{ $maxPrice }}"
-        initial-sort="{{ request('sort', 'latest') }}"
-        :initial-per-page="{{ request('perPage', 30) }}"
+        initial-sort="{{ request('sort', 'alphabetic') }}"
+        :initial-per-page="{{ request('perPage', 150) }}"
         :initial-page="{{ request('page', 1) }}"
         initial-view-mode="{{ request('viewMode', 'grid') }}"
         inline-template
     >
         <section class="product-search-wrap">
             <div class="container">
-                <div class="product-search">
-                    <div class="product-search-left">
-                        @if ($categories->isNotEmpty())
-                            <div class="d-none d-lg-block browse-categories-wrap">
-                                <h4 class="section-title">
-                                    {{ trans('storefront::products.browse_categories') }}
-                                </h4>
-
-                                @include('public.products.index.browse_categories')
-                            </div>
-                        @endif
-
-                        @include('public.products.index.filter')
-                        @include('public.products.index.latest_products')
-                    </div>
-
-                    <div class="product-search-right" v-cloak>
+                <div class="row">
+                    <div class="col products-left">
                         <div class="d-none d-lg-block categories-banner" v-if="brandBanner">
                             <img :src="brandBanner" alt="Brand banner">
                         </div>
@@ -81,28 +66,6 @@
                                     </div>
 
                                     <div class="sorting-bar">
-                                        <div class="view-type">
-                                            <button
-                                                type="submit"
-                                                class="btn btn-grid-view"
-                                                :class="{ active: viewMode === 'grid' }"
-                                                title="{{ trans('storefront::products.grid_view') }}"
-                                                @click="viewMode = 'grid'"
-                                            >
-                                                <i class="las la-th-large"></i>
-                                            </button>
-
-                                            <button
-                                                type="submit"
-                                                class="btn btn-list-view"
-                                                :class="{ active: viewMode === 'list' }"
-                                                title="{{ trans('storefront::products.list_view') }}"
-                                                @click="viewMode = 'list'"
-                                            >
-                                                <i class="las la-list"></i>
-                                            </button>
-                                        </div>
-
                                         <div class="form-group m-r-20">
                                             <select
                                                 class="form-control custom-select-option right arrow-black"
@@ -141,12 +104,9 @@
                             </div>
 
                             <div class="search-result-middle" :class="{ empty: emptyProducts, loading: fetchingProducts }">
-                                <div class="grid-view-products" v-if="viewMode === 'grid'">
-                                    <product-card-grid-view v-for="product in products.data" :key="product.id" :product="product"></product-card-grid-view>
-                                </div>
 
-                                <div class="list-view-products" v-if="viewMode === 'list'">
-                                    <product-card-list-view v-for="product in products.data" :key="product.id" :product="product"></product-card-list-view>
+                                <div class="table-view-products">
+                                    <product-table-view :products="products"></product-table-view>
                                 </div>
 
                                 <div class="empty-message" v-if="! fetchingProducts && emptyProducts">
@@ -167,7 +127,26 @@
                                 >
                                 </v-pagination>
                             </div>
+
+                            <div id="description" class="description">
+                                {!! $categoryDes !!}
+                            </div>
                         </div>
+                    </div>
+                    <div class="col-lg-4 col-xl-4">
+                        @if ($categories->isNotEmpty())
+                        <div class="d-none browse-categories-wrap">
+                            <h4 class="section-title">
+                                {{ trans('storefront::products.browse_categories') }}
+                            </h4>
+
+                            @include('public.products.index.browse_categories')
+                        </div>
+                        @endif
+                        <div class="d-none">
+                            @include('public.products.index.filter')
+                        </div>
+                        @include('public.products.index.hot_products')
                     </div>
                 </div>
             </div>

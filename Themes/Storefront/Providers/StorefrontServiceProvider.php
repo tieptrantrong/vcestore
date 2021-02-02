@@ -35,6 +35,7 @@ class StorefrontServiceProvider extends ServiceProvider
         View::composer('public.layout', LayoutComposer::class);
         View::composer('public.home.index', HomePageComposer::class);
         View::composer('public.products.index', ProductIndexPageComposer::class);
+        View::composer('public.products.category', ProductIndexPageComposer::class);
         View::composer('public.products.show', ProductShowPageComposer::class);
         View::composer('admin.storefront.tabs.*', StorefrontTabsComposer::class);
 

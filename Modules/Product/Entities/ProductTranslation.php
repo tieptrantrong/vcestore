@@ -11,5 +11,5 @@ class ProductTranslation extends TranslationModel
      *
      * @var array
      */
-    protected $fillable = ['name', 'description', 'short_description'];
+    protected $fillable = ['name', 'title', 'description', 'short_description'];
 }

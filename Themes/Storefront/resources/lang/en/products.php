@@ -5,6 +5,7 @@ return [
     'price' => 'Price',
     'filters' => 'Filters',
     'latest_products' => 'Latest Products',
+    'hot_products' => 'Hot Products',
     'search_results_for' => 'Search results for:',
     'shop' => 'Shop',
     'grid_view' => 'Grid View',

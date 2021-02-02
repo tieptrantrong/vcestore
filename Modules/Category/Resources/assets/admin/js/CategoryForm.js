@@ -98,6 +98,7 @@ export default class {
 
         $('#id').val(category.id);
         $('#name').val(category.name);
+        tinyMCE.get('description').setContent(category.description);
 
         $('#slug').val(category.slug);
         $('#slug-field').removeClass('hide');
@@ -131,6 +132,7 @@ export default class {
 
         $('#id').val('');
         $('#name').val('');
+        $('#description').val('');
 
         $('#slug').val('');
         $('#slug-field').addClass('hide');

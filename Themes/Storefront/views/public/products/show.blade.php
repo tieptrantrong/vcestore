@@ -56,6 +56,7 @@
                         <div class="product-details-info">
                             <div class="details-info-top">
                                 <h1 class="product-name">{{ $product->name }}</h1>
+                                <h2 class="product-name">{{ $product->title }}</h2>
 
                                 @if (setting('reviews_enabled'))
                                     <product-rating :rating-percent="ratingPercent" :review-count="totalReviews"></product-rating>

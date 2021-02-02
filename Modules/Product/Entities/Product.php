@@ -106,7 +106,7 @@ class Product extends Model
      *
      * @var array
      */
-    protected $translatedAttributes = ['name', 'description', 'short_description'];
+    protected $translatedAttributes = ['name', 'description', 'short_description', 'title'];
 
     /**
      * The attribute that will be slugged.
@@ -192,7 +192,7 @@ class Product extends Model
 
     public function scopeWithName($query)
     {
-        $query->with('translations:id,product_id,locale,name');
+        $query->with('translations:id,product_id,locale,name,title');
     }
 
     public function scopeWithBaseImage($query)
@@ -573,6 +573,7 @@ class Product extends Model
         return array_except($this->toArray(), [
             'description',
             'short_description',
+            'title',
             'translations',
             'categories',
             'files',
@@ -642,7 +643,7 @@ class Product extends Model
 
         $translations = $this->translations()
             ->withoutGlobalScope('locale')
-            ->get(['name', 'description', 'short_description']);
+            ->get(['name', 'description', 'short_description', 'title']);
 
         return ['id' => $this->id, 'translations' => $translations];
     }
@@ -659,6 +660,6 @@ class Product extends Model
 
     public function searchColumns()
     {
-        return ['name'];
+        return ['name', 'title', 'description', 'short_description'];
     }
 }

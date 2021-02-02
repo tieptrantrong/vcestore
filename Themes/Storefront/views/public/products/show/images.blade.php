@@ -1,4 +1,5 @@
 <div class="product-image-gallery">
+    {{--
     <div class="additional-image-wrap">
         @if (! $product->base_image->exists)
             <div class="additional-image">
@@ -22,7 +23,7 @@
             @endif
         @endforeach
     </div>
-
+    --}}
     <div class="base-image-wrap">
         <div class="base-image">
             @if (! $product->base_image->exists)

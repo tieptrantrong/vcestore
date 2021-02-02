@@ -1,4 +1,5 @@
 {{ Form::text('name', trans('product::attributes.name'), $errors, $product, ['labelCol' => 2, 'required' => true]) }}
+{{ Form::text('title', trans('product::attributes.title'), $errors, $product, ['labelCol' => 2, 'required' => false]) }}
 {{ Form::wysiwyg('description', trans('product::attributes.description'), $errors, $product, ['labelCol' => 2, 'required' => true]) }}
 
 <div class="row">

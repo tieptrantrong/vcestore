@@ -3,6 +3,7 @@
 return [
     'name' => 'Name',
     'slug' => 'URL',
+    'title' => 'Title',
     'description' => 'Description',
     'short_description' => 'Short Description',
     'brand_id' => 'Brand',

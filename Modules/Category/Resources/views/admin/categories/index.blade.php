@@ -41,14 +41,15 @@
                         <div class="tab-content">
                             <div id="general-information" class="tab-pane fade in active">
                                 <div class="row">
-                                    <div class="col-md-8">
+                                    <div class="col-md-12">
                                         <div id="id-field" class="hide">
-                                            {{ Form::text('id', trans('category::attributes.id'), $errors, null, ['disabled' => true]) }}
+                                            {{ Form::text('id', trans('category::attributes.id'), $errors, null, ['labelCol' => 2, 'disabled' => true]) }}
                                         </div>
 
-                                        {{ Form::text('name', trans('category::attributes.name'), $errors, null, ['required' => true]) }}
-                                        {{ Form::checkbox('is_searchable', trans('category::attributes.is_searchable'), trans('category::categories.form.show_this_category_in_search_box'), $errors) }}
-                                        {{ Form::checkbox('is_active', trans('category::attributes.is_active'), trans('category::categories.form.enable_the_category'), $errors) }}
+                                        {{ Form::text('name', trans('category::attributes.name'), $errors, null, ['labelCol' => 2, 'required' => true]) }}
+                                        {{ Form::wysiwyg('description', trans('category::attributes.description'), $errors, null, ['labelCol' => 2, 'required' => false]) }}
+                                        {{ Form::checkbox('is_searchable', trans('category::attributes.is_searchable'), trans('category::categories.form.show_this_category_in_search_box'), $errors, null, ['labelCol' => 2, 'required' => false]) }}
+                                        {{ Form::checkbox('is_active', trans('category::attributes.is_active'), trans('category::categories.form.enable_the_category'), $errors, null, ['labelCol' => 2, 'required' => false]) }}
                                     </div>
                                 </div>
                             </div>

@@ -29,8 +29,9 @@ class CategoryProductController
 
         $category = Category::findBySlug($slug);
 
-        return view('public.products.index', [
+        return view('public.products.category', [
             'categoryName' => $category->name,
+            'categoryDes' => $category->description,
             'categoryBanner' => $category->banner->path,
         ]);
     }

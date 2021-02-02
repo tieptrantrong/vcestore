@@ -11,7 +11,7 @@
             <tbody>
                 <tr v-for="product in products.data" :key="product.id">
                     <td class="center-align-product"><a :href="productUrl(product.slug)">{{product.name}}</a></td>
-                    <td class="title-product"><a :href="productUrl(product.slug)">{{product.description}}</a></td>
+                    <td class="title-product"><a :href="productUrl(product.slug)">{{product.title}}</a></td>
                     <td class="center-align-product">{{product.public_resources.length}}</td>
                 </tr>
             </tbody>
