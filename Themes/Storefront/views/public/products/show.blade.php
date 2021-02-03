@@ -201,6 +201,12 @@
                         <div class="product-details-tab clearfix">
                             <ul class="nav nav-tabs tabs">
                                 <li class="nav-item">
+                                    <a href="#public-resources" data-toggle="tab" class="nav-link" :class="{ active: activeTab === 'public-resources' }">
+                                        {{ trans('storefront::product.public_resources') }}
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
                                     <a href="#description" data-toggle="tab" class="nav-link" :class="{ active: activeTab === 'description' }">
                                         {{ trans('storefront::product.description') }}
                                     </a>
@@ -224,6 +230,7 @@
                             </ul>
 
                             <div class="tab-content">
+                                @include('public.products.show.tab_public_resources')
                                 @include('public.products.show.tab_description')
                                 @include('public.products.show.tab_specification')
                                 @include('public.products.show.tab_reviews')

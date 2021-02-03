@@ -22,6 +22,7 @@ return [
     'you_might_also_like' => 'You might also like',
     'description' => 'Description',
     'specification' => 'Specification',
+    'public_resources' => 'Free Courses',
     'reviews' => 'Reviews (:count)',
     'add_a_review' => 'Add a review',
     'review_form' => [

@@ -16,7 +16,7 @@ export default {
     data() {
         return {
             price: this.product.formatted_price,
-            activeTab: 'description',
+            activeTab: 'public-resources',
             currentReviewPage: 1,
             fetchingReviews: false,
             reviews: {},
