@@ -50,6 +50,7 @@
                                         {{ Form::wysiwyg('description', trans('category::attributes.description'), $errors, null, ['labelCol' => 2, 'required' => false]) }}
                                         {{ Form::checkbox('is_searchable', trans('category::attributes.is_searchable'), trans('category::categories.form.show_this_category_in_search_box'), $errors, null, ['labelCol' => 2, 'required' => false]) }}
                                         {{ Form::checkbox('is_active', trans('category::attributes.is_active'), trans('category::categories.form.enable_the_category'), $errors, null, ['labelCol' => 2, 'required' => false]) }}
+                                        {{ Form::checkbox('is_hot', trans('category::attributes.is_hot'), trans('category::categories.form.enable_the_category'), $errors, null, ['labelCol' => 2, 'required' => false]) }}
                                     </div>
                                 </div>
                             </div>

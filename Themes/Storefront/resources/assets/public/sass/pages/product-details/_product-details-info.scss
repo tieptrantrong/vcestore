@@ -1,5 +1,4 @@
 .product-details-info {
-	width: calc(100% - 600px);
 	padding: 0 15px 0 30px;
 
 	.details-info-top {
@@ -8,6 +7,12 @@
 
 	.product-name {
 		font-size: 24px;
+		line-height: 30px;
+		margin-bottom: 15px;
+	}
+
+	.product-subtitle {
+		font-size: 20px;
 		line-height: 30px;
 		margin-bottom: 15px;
 	}
@@ -281,7 +286,7 @@
 	}
 
 	.btn-add-to-cart {
-		margin-left: 20px;
+		//margin-left: 20px;
 		padding: 8px 30px;
 
 		> i {
@@ -343,12 +348,6 @@
 		.social-links {
 			margin-left: 16px;
 		}
-	}
-}
-
-@media screen and (max-width: 1600px) {
-	.product-details-info {
-		width: calc(100% - 500px);
 	}
 }
 

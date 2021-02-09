@@ -49,195 +49,210 @@
     >
         <section class="product-details-wrap">
             <div class="container">
-                <div class="product-details-top">
-                    <div class="product-details-top-inner">
-                        @include('public.products.show.images')
-
-                        <div class="product-details-info">
-                            <div class="details-info-top">
-                                <h1 class="product-name">{{ $product->name }}</h1>
-                                <h2 class="product-name">{{ $product->title }}</h2>
-
-                                @if (setting('reviews_enabled'))
-                                    <product-rating :rating-percent="ratingPercent" :review-count="totalReviews"></product-rating>
-                                @endif
-
-                                @if ($product->isInStock())
-                                    @if ($product->manage_stock)
-                                        <div class="availability in-stock">
-                                            {{ trans('storefront::product.left_in_stock', ['count' => $product->qty]) }}
+                <div class="row">
+                    <div class="col products-left">
+                        <div class="product-details-top">
+                            <div class="product-details-top-inner">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="product-base-image">
+                                            <img src="{{ $product->base_image->path }}">
                                         </div>
-                                    @else
-                                        <div class="availability in-stock">
-                                            {{ trans('storefront::product.in_stock') }}
-                                        </div>
-                                    @endif
-                                @else
-                                    <div class="availability out-of-stock">
-                                        {{ trans('storefront::product.out_of_stock') }}
                                     </div>
-                                @endif
+                                    <div class="col">
+                                        <div class="product-details-info">
+                                            <div class="details-info-top">
+                                                <h1 class="product-name">{{ $product->name }}</h1>
+                                                <h2 class="product-name">{{ $product->title }}</h2>
+                                                @if ($product->questions > 0)
+                                                <p class="product-subtitle">Includes {{ $product->questions }} Questions & Answers</p>
+                                                @endif
 
-                                <div class="brief-description">
-                                    {!! $product->short_description !!}
-                                </div>
+                                                @if (setting('reviews_enabled'))
+                                                    <product-rating :rating-percent="ratingPercent" :review-count="totalReviews"></product-rating>
+                                                @endif
 
-                                <div class="details-info-top-actions">
-                                    <button
-                                        class="btn btn-wishlist"
-                                        :class="{ 'added': inWishlist }"
-                                        @click="syncWishlist"
-                                    >
-                                        <i class="la-heart" :class="inWishlist ? 'las' : 'lar'"></i>
-                                        {{ trans('storefront::product.wishlist') }}
-                                    </button>
+                                                @if ($product->isInStock())
+                                                    @if ($product->manage_stock)
+                                                        <div class="availability in-stock">
+                                                            {{ trans('storefront::product.left_in_stock', ['count' => $product->qty]) }}
+                                                        </div>
+                                                    @else
+                                                        <div class="availability in-stock">
+                                                            {{ trans('storefront::product.in_stock') }}
+                                                        </div>
+                                                    @endif
+                                                @else
+                                                    <div class="availability out-of-stock">
+                                                        {{ trans('storefront::product.out_of_stock') }}
+                                                    </div>
+                                                @endif
 
-                                    <button
-                                        class="btn btn-compare"
-                                        :class="{ 'added': inCompareList }"
-                                        @click="syncCompareList"
-                                    >
-                                        <i class="las la-random"></i>
-                                        {{ trans('storefront::product.compare') }}
-                                    </button>
-                                </div>
-                            </div>
+                                                <div class="brief-description">
+                                                    {!! $product->short_description !!}
+                                                </div>
 
-                            <div class="details-info-middle">
-                                <div class="product-price" v-html="price">
-                                    {!! $product->formatted_price !!}
-                                </div>
+                                                <div class="details-info-top-actions">
+                                                    <button
+                                                        class="btn btn-wishlist"
+                                                        :class="{ 'added': inWishlist }"
+                                                        @click="syncWishlist"
+                                                    >
+                                                        <i class="la-heart" :class="inWishlist ? 'las' : 'lar'"></i>
+                                                        {{ trans('storefront::product.wishlist') }}
+                                                    </button>
 
-                                <form
-                                    @submit.prevent="addToCart"
-                                    @input="errors.clear($event.target.name)"
-                                    @change="updatePrice"
-                                    @nice-select-updated="updatePrice"
-                                >
-                                    <div class="product-variants">
-                                        @foreach ($product->options as $option)
-                                            @includeIf("public.products.show.custom_options.{$option->type}")
-                                        @endforeach
-                                    </div>
+                                                    <button
+                                                        class="btn btn-compare"
+                                                        :class="{ 'added': inCompareList }"
+                                                        @click="syncCompareList"
+                                                    >
+                                                        <i class="las la-random"></i>
+                                                        {{ trans('storefront::product.compare') }}
+                                                    </button>
+                                                </div>
+                                            </div>
 
-                                    <div class="details-info-middle-actions">
-                                        <div class="number-picker">
-                                            <label for="qty">{{ trans('storefront::product.quantity') }}</label>
+                                            <div class="details-info-middle">
+                                                <div class="product-price" v-html="price">
+                                                    {!! $product->formatted_price !!}
+                                                </div>
 
-                                            <div class="input-group-quantity">
-                                                <input
-                                                    type="text"
-                                                    :value="cartItemForm.qty"
-                                                    min="1"
-                                                    max="{{ $product->manage_stock ? $product->qty : '' }}"
-                                                    id="qty"
-                                                    class="form-control input-number input-quantity"
-                                                    @input="updateQuantity($event.target.value)"
-                                                    @keydown.up="updateQuantity(cartItemForm.qty + 1)"
-                                                    @keydown.down="updateQuantity(cartItemForm.qty - 1)"
+                                                <form
+                                                    @submit.prevent="addToCart"
+                                                    @input="errors.clear($event.target.name)"
+                                                    @change="updatePrice"
+                                                    @nice-select-updated="updatePrice"
                                                 >
+                                                    <div class="product-variants">
+                                                        @foreach ($product->options as $option)
+                                                            @includeIf("public.products.show.custom_options.{$option->type}")
+                                                        @endforeach
+                                                    </div>
 
-                                                <span class="btn-wrapper">
-                                                    <button type="button" class="btn btn-number btn-plus" data-type="plus"> + </button>
-                                                    <button type="button" class="btn btn-number btn-minus" data-type="minus" disabled> - </button>
-                                                </span>
+                                                    <div class="details-info-middle-actions">
+                                                        <div class="d-none number-picker">
+                                                            <label for="qty">{{ trans('storefront::product.quantity') }}</label>
+
+                                                            <div class="input-group-quantity">
+                                                                <input
+                                                                    type="text"
+                                                                    :value="cartItemForm.qty"
+                                                                    min="1"
+                                                                    max="{{ $product->manage_stock ? $product->qty : '' }}"
+                                                                    id="qty"
+                                                                    class="form-control input-number input-quantity"
+                                                                    @input="updateQuantity($event.target.value)"
+                                                                    @keydown.up="updateQuantity(cartItemForm.qty + 1)"
+                                                                    @keydown.down="updateQuantity(cartItemForm.qty - 1)"
+                                                                >
+
+                                                                <span class="btn-wrapper">
+                                                                    <button type="button" class="btn btn-number btn-plus" data-type="plus"> + </button>
+                                                                    <button type="button" class="btn btn-number btn-minus" data-type="minus" disabled> - </button>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+
+                                                        <button
+                                                            type="submit"
+                                                            class="btn btn-primary btn-add-to-cart"
+                                                            :class="{'btn-loading': addingToCart }"
+                                                            {{ $product->isOutOfStock() ? 'disabled' : '' }}
+                                                        >
+                                                            <i class="las la-cart-arrow-down"></i>
+                                                            {{ trans('storefront::product.add_to_cart') }}
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                            </div>
+
+                                            <div class="details-info-bottom">
+                                                <ul class="list-inline additional-info">
+                                                    @unless (is_null($product->sku))
+                                                        <li class="sku">
+                                                            <label>{{ trans('storefront::product.sku') }}</label> {{ $product->sku }}
+                                                        </li>
+                                                    @endunless
+
+                                                    @if ($product->categories->isNotEmpty())
+                                                        <li>
+                                                            <label>{{ trans('storefront::product.categories') }}</label>
+
+                                                            @foreach ($product->categories as $category)
+                                                                <a href="{{ $category->url() }}">{{ $category->name }}</a>{{ $loop->last ? '' : ',' }}
+                                                            @endforeach
+                                                        </li>
+                                                    @endif
+
+                                                    @if ($product->tags->isNotEmpty())
+                                                        <li>
+                                                            <label>{{ trans('storefront::product.tags') }}</label>
+
+                                                            @foreach ($product->tags as $tag)
+                                                                <a href="{{ $tag->url() }}">{{ $tag->name }}</a>{{ $loop->last ? '' : ',' }}
+                                                            @endforeach
+                                                        </li>
+                                                    @endif
+                                                </ul>
+
+                                                @include('public.products.show.social_share')
                                             </div>
                                         </div>
-
-                                        <button
-                                            type="submit"
-                                            class="btn btn-primary btn-add-to-cart"
-                                            :class="{'btn-loading': addingToCart }"
-                                            {{ $product->isOutOfStock() ? 'disabled' : '' }}
-                                        >
-                                            <i class="las la-cart-arrow-down"></i>
-                                            {{ trans('storefront::product.add_to_cart') }}
-                                        </button>
                                     </div>
-                                </form>
+                                </div>
                             </div>
 
-                            <div class="details-info-bottom">
-                                <ul class="list-inline additional-info">
-                                    @unless (is_null($product->sku))
-                                        <li class="sku">
-                                            <label>{{ trans('storefront::product.sku') }}</label> {{ $product->sku }}
+                            @include('public.products.show.right_sidebar')
+                        </div>
+
+                        <div class="product-details-bottom flex-column-reverse flex-lg-row">
+                            <div class="product-details-bottom-inner">
+                                <div class="product-details-tab clearfix">
+                                    <ul class="nav nav-tabs tabs">
+                                        <li class="nav-item">
+                                            <a href="#public-resources" data-toggle="tab" class="nav-link" :class="{ active: activeTab === 'public-resources' }">
+                                                {{ trans('storefront::product.public_resources') }}
+                                            </a>
                                         </li>
-                                    @endunless
 
-                                    @if ($product->categories->isNotEmpty())
-                                        <li>
-                                            <label>{{ trans('storefront::product.categories') }}</label>
-
-                                            @foreach ($product->categories as $category)
-                                                <a href="{{ $category->url() }}">{{ $category->name }}</a>{{ $loop->last ? '' : ',' }}
-                                            @endforeach
+                                        <li class="nav-item">
+                                            <a href="#description" data-toggle="tab" class="nav-link" :class="{ active: activeTab === 'description' }">
+                                                {{ trans('storefront::product.description') }}
+                                            </a>
                                         </li>
-                                    @endif
 
-                                    @if ($product->tags->isNotEmpty())
-                                        <li>
-                                            <label>{{ trans('storefront::product.tags') }}</label>
+                                        @if ($product->hasAnyAttribute())
+                                            <li class="nav-item">
+                                                <a href="#specification" data-toggle="tab" class="nav-link" :class="{ active: activeTab === 'specification' }">
+                                                    {{ trans('storefront::product.specification') }}
+                                                </a>
+                                            </li>
+                                        @endif
 
-                                            @foreach ($product->tags as $tag)
-                                                <a href="{{ $tag->url() }}">{{ $tag->name }}</a>{{ $loop->last ? '' : ',' }}
-                                            @endforeach
-                                        </li>
-                                    @endif
-                                </ul>
+                                        @if (setting('reviews_enabled'))
+                                            <li class="nav-item">
+                                                <a href="#reviews" data-toggle="tab" class="nav-link" :class="{ active: activeTab === 'reviews' }" v-cloak>
+                                                    @{{ $trans('storefront::product.reviews', { count: totalReviews }) }}
+                                                </a>
+                                            </li>
+                                        @endif
+                                    </ul>
 
-                                @include('public.products.show.social_share')
+                                    <div class="tab-content">
+                                        @include('public.products.show.tab_public_resources')
+                                        @include('public.products.show.tab_description')
+                                        @include('public.products.show.tab_specification')
+                                        @include('public.products.show.tab_reviews')
+                                    </div>
+                                </div>
+
+                                <related-products :products="{{ $relatedProducts }}"></related-products>
                             </div>
                         </div>
                     </div>
-
-                    @include('public.products.show.right_sidebar')
-                </div>
-
-                <div class="product-details-bottom flex-column-reverse flex-lg-row">
-                    @include('public.products.show.left_sidebar')
-
-                    <div class="product-details-bottom-inner">
-                        <div class="product-details-tab clearfix">
-                            <ul class="nav nav-tabs tabs">
-                                <li class="nav-item">
-                                    <a href="#public-resources" data-toggle="tab" class="nav-link" :class="{ active: activeTab === 'public-resources' }">
-                                        {{ trans('storefront::product.public_resources') }}
-                                    </a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="#description" data-toggle="tab" class="nav-link" :class="{ active: activeTab === 'description' }">
-                                        {{ trans('storefront::product.description') }}
-                                    </a>
-                                </li>
-
-                                @if ($product->hasAnyAttribute())
-                                    <li class="nav-item">
-                                        <a href="#specification" data-toggle="tab" class="nav-link" :class="{ active: activeTab === 'specification' }">
-                                            {{ trans('storefront::product.specification') }}
-                                        </a>
-                                    </li>
-                                @endif
-
-                                @if (setting('reviews_enabled'))
-                                    <li class="nav-item">
-                                        <a href="#reviews" data-toggle="tab" class="nav-link" :class="{ active: activeTab === 'reviews' }" v-cloak>
-                                            @{{ $trans('storefront::product.reviews', { count: totalReviews }) }}
-                                        </a>
-                                    </li>
-                                @endif
-                            </ul>
-
-                            <div class="tab-content">
-                                @include('public.products.show.tab_public_resources')
-                                @include('public.products.show.tab_description')
-                                @include('public.products.show.tab_specification')
-                                @include('public.products.show.tab_reviews')
-                            </div>
-                        </div>
-
-                        <related-products :products="{{ $relatedProducts }}"></related-products>
+                    <div class="col-lg-4 col-xl-4">
+                        @include('public.layout.right_sidebar')
                     </div>
                 </div>
             </div>

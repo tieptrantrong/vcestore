@@ -43,7 +43,14 @@ class MySqlSearchEngine extends Engine
 
         $columns = implode(',', $builder->model->searchColumns());
 
-        $query->whereRaw("MATCH ({$columns}) AGAINST (? IN BOOLEAN MODE)", $this->getSearchKeyword($builder));
+        $query->whereRaw("MATCH ({$columns}) AGAINST (? IN BOOLEAN MODE)", $this->getSearchName($builder));
+
+        $count = $query->count();
+
+        if ($count <= 0) {
+            $query = DB::table($builder->model->searchTable());
+            $query->whereRaw("MATCH ({$columns}) AGAINST (? IN BOOLEAN MODE)", $this->getSearchName($builder));
+        }
 
         if ($builder->callback) {
             $query = call_user_func($builder->callback, $query, $this);
@@ -81,8 +88,15 @@ class MySqlSearchEngine extends Engine
         if (is_null($builder->query)) {
             return '';
         }
+        return '+' . preg_replace('/[-~*()><@"]/', ' ', $builder->query) . '*';
+    }
 
-        return '+' . preg_replace('/[-+~*()><@"]/', ' ', $builder->query) . '*';
+    private function getSearchName($builder)
+    {
+        if (is_null($builder->query)) {
+            return '';
+        }
+        return '"' . '+' . $builder->query . '*' . '"';
     }
 
     /**

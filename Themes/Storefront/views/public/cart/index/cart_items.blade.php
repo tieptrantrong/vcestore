@@ -4,8 +4,8 @@
             <tr>
                 <th>{{ trans('storefront::cart.table.image') }}</th>
                 <th>{{ trans('storefront::cart.table.product_name') }}</th>
-                <th>{{ trans('storefront::cart.table.unit_price') }}</th>
-                <th>{{ trans('storefront::cart.table.quantity') }}</th>
+                {{--<th>{{ trans('storefront::cart.table.unit_price') }}</th>
+                <th>{{ trans('storefront::cart.table.quantity') }}</th>--}}
                 <th>{{ trans('storefront::cart.table.line_total') }}</th>
                 <th>
                     <button class="btn-remove" @click="clearCart">
@@ -41,7 +41,7 @@
                         </li>
                     </ul>
                 </td>
-
+                {{--
                 <td>
                     <label>{{ trans('storefront::cart.table.unit_price:') }}</label>
 
@@ -74,7 +74,7 @@
                         </div>
                     </div>
                 </td>
-
+                --}}
                 <td>
                     <label>{{ trans('storefront::cart.table.line_total:') }}</label>
 

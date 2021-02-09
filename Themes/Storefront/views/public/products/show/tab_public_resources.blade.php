@@ -12,16 +12,16 @@ function convertToReadableSize($size){
         <thead class="table-header-bg">
             <tr>
                 <th scope="col" class="center-align-product">{{ trans('storefront::product_card.title_exam') }}</th>
-                <th scope="col" class="title-product">{{ trans('storefront::product_card.title_product') }}</th>
-                <th scope="col" class="center-align-product">{{ trans('storefront::product_card.title_files') }}</th>
+                <th scope="col" class="center-align-product">{{ trans('storefront::product_card.file_size') }}</th>
+                <th scope="col" class="center-align-product"></th>
             </tr>
         </thead>
         <tbody>
             @foreach ($product->public_resources as $public_resource)
             <tr>
-                <td class="center-align-product"><a href="{{$public_resource->path}}" download>{{$public_resource->filename}}</a></td>
+                <td class="center-align-product"><a href="{{$public_resource->path}}" download="{{$public_resource->filename}}">{{$public_resource->filename}}</a></td>
                 <td class="center-align-product">{{convertToReadableSize($public_resource->size)}}</td>
-                <td class="center-align-product"><a href="{{$public_resource->path}}" download>Download</a></td>
+                <td class="center-align-product"><a href="{{$public_resource->path}}"  download="{{$public_resource->filename}}x">Download</a></td>
             </tr>
             @endforeach
         </tbody>

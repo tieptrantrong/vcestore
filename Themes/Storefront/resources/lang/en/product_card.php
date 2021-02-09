@@ -19,4 +19,5 @@ return [
     'title_product' => 'Title',
     'title_exam' => 'Exam',
     'title_files' => 'Files',
+    'file_size' => 'Size'
 ];

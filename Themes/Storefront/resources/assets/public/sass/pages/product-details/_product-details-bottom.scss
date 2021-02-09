@@ -1,27 +1,7 @@
 .product-details-bottom {
 	display: flex;
-
-	.left-sidebar {
-		width: 285px;
-		min-width: 285px;
-		padding-right: 15px;
-
-        .vertical-products {
-            margin-top: 14px;
-
-            & + .banner {
-                margin-top: 45px;
-            }
-        }
-
-        .banner {
-            margin-top: 20px;
-        }
-	}
-
 	.product-details-bottom-inner {
-		width: calc(100% - 282px);
-		padding-left: 15px;
+		width: 100%;
 	}
 }
 
@@ -56,7 +36,6 @@
 
 		.product-details-bottom-inner {
 			width: 100%;
-			padding-left: 0;
 		}
 
 		.product-details-tab {

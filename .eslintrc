@@ -19,7 +19,10 @@
                     "!": true
                 }
             }
-        ]
+        ],
+        "vue/no-use-v-if-with-v-for": ["error", {
+            "allowUsingIterationVar": true
+        }]
     },
     "globals": {
         "_": true,

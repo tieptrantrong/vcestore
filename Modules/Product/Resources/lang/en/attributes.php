@@ -23,4 +23,6 @@ return [
     'new_from' => 'Product New From',
     'new_to' => 'Product New To',
     'is_reviewable' => 'Reviewable',
+    'is_certificate' => 'Certificate',
+    'number_of_questions' => 'Number of Questions'
 ];

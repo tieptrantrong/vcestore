@@ -61,6 +61,8 @@ class Product extends Model
         'qty',
         'in_stock',
         'is_active',
+        'is_certificate',
+        'questions',
         'new_from',
         'new_to',
     ];
@@ -74,6 +76,7 @@ class Product extends Model
         'manage_stock' => 'boolean',
         'in_stock' => 'boolean',
         'is_active' => 'boolean',
+        'is_certificate' => 'boolean'
     ];
 
     /**
@@ -175,6 +178,8 @@ class Product extends Model
                 'products.qty',
                 'products.new_from',
                 'products.new_to',
+                'products.is_certificate',
+                'products.questions'
             ]);
     }
 
@@ -217,6 +222,16 @@ class Product extends Model
     public function categories()
     {
         return $this->belongsToMany(Category::class, 'product_categories');
+    }
+
+    public function certificates()
+    {
+        return $this->belongsToMany(Product::class, 'certificate_product', 'certificate_id', 'product_id');
+    }
+
+    public function parent()
+    {
+        return $this->belongsToMany(Product::class, 'certificate_product', 'product_id', 'certificate_id');
     }
 
     public function privateUrlProducts()
@@ -336,6 +351,13 @@ class Product extends Model
             ->sortBy('pivot.id');
     }
 
+    public function hasPublicResource($id)
+    {
+        return $this->files
+        ->where('pivot.zone', 'public_resources')
+        ->where('pivot.file_id', $id)->count() > 0;
+    }
+
     public function getFormattedPriceAttribute()
     {
         return product_price_formatted($this);
@@ -349,6 +371,11 @@ class Product extends Model
     }
 
     public function getIsInStockAttribute()
+    {
+        return $this->isInStock();
+    }
+
+    public function getIsAttribute()
     {
         return $this->isInStock();
     }
@@ -394,6 +421,11 @@ class Product extends Model
         }
 
         return $this->in_stock;
+    }
+
+    public function isCertificate()
+    {
+        return $this->is_certificate;
     }
 
     public function isOutOfStock()
@@ -562,7 +594,7 @@ class Product extends Model
     {
         return self::with([
             'categories', 'tags', 'attributes.attribute.attributeSet',
-            'options', 'files', 'relatedProducts', 'upSellProducts',
+            'options', 'files', 'relatedProducts', 'upSellProducts', 'certificates'
         ])
         ->where('slug', $slug)
         ->firstOrFail();
@@ -576,8 +608,11 @@ class Product extends Model
             'title',
             'translations',
             'categories',
+            'certificates',
             'files',
             'is_active',
+            'is_certificate',
+            'questions',
             'in_stock',
             'brand_id',
             'tax_class',
@@ -623,6 +658,7 @@ class Product extends Model
         $privateUrlProducts = array_get($attributes, 'privateUrlProducts', []);
         $this->privateProducts()->attach($privateUrlProducts);
         $this->categories()->sync(array_get($attributes, 'categories', []));
+        $this->certificates()->sync(array_get($attributes, 'certificates', []));
         $this->tags()->sync(array_get($attributes, 'tags', []));
         $this->upSellProducts()->sync(array_get($attributes, 'up_sells', []));
         $this->crossSellProducts()->sync(array_get($attributes, 'cross_sells', []));
@@ -660,6 +696,6 @@ class Product extends Model
 
     public function searchColumns()
     {
-        return ['name', 'title', 'description', 'short_description'];
+        return ['name'];
     }
 }

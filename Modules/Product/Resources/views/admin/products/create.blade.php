@@ -15,4 +15,5 @@
     </form>
 @endsection
 
+@include('admin::partials.selectize_remote')
 @include('product::admin.products.partials.shortcuts')

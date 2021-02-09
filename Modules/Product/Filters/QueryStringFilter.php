@@ -33,6 +33,8 @@ class QueryStringFilter
         'qty',
         'new_from',
         'new_to',
+        'is_certificate',
+        'questions'
     ];
 
     public function sort($query, $sortType)

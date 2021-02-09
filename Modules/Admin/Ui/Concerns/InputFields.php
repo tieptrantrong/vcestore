@@ -76,6 +76,7 @@ trait InputFields
     protected function selectField($name, $value, $class, $attributes, $options, $list)
     {
         $multiple = array_get($options, 'multiple', false);
+        $selectAll = array_get($options, 'select_all', false);
         $disabled = array_get($options, 'disabled', false);
         $readonly = array_pull($options, 'readonly', false);
 
@@ -87,8 +88,8 @@ trait InputFields
             . ($disabled ? 'disabled' : '')
             . ($readonly ? 'readonly ' : '') .
         '>';
-
         foreach ($list as $listValue => $listName) {
+            
             $listValue = e($listValue);
             $listName = e($listName);
 
@@ -99,12 +100,14 @@ trait InputFields
             } else {
                 $selected = (! is_null($value) && $value == $listValue) ? 'selected' : '';
             }
-
+            if ($selectAll) {
+                $selected = 'selected';
+            }
             $html .= "<option value='{$listValue}' {$selected}>{$listName}</option>";
         }
 
         $html .= '</select>';
-
+        
         return $html;
     }
 

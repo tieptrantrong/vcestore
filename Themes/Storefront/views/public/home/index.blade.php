@@ -3,6 +3,27 @@
 @section('title', setting('store_tagline'))
 
 @section('content')
+
+    <section class="vce-welcome">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h1>Pass Your Next Certification Exam Fast</h1>
+                    <div class="h3">
+                        <p>Real IT Certification IT Certification Practice Tests. Instant Download</p>
+                        <p>Accurate &amp; Verified Exam Questions &amp; Answers by IT Experts, 99.6% Exam Pass Rate</p>
+                        <p>15 years in the business, more than 1.2M happy customers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="vce-hot">
+    
+    </section>
+
+
     @includeUnless(is_null($slider), 'public.home.sections.slider')
 
     @if (setting('storefront_features_section_enabled'))

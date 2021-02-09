@@ -41,6 +41,7 @@ return [
     'type' => 'Type',
     'products_limit' => 'Products Limit',
     'products' => 'Products',
+    'certificates' => 'Certificates',
     'storefront_top_brands' => 'Top Brands',
     'storefront_active_flash_sale_campaign' => 'Active Campaign',
 ];

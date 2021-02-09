@@ -13,7 +13,7 @@ class CategoryController
      */
     public function index()
     {
-        return view('public.categories.index', [
+        return view('public.categories.all', [
             'categories' => Category::all()->nest(),
         ]);
     }

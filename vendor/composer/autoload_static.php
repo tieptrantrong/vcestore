@@ -133,6 +133,7 @@ class ComposerStaticInite85c05de514d404a4ed5c919fa5654fe
             'TypiCMS\\' => 8,
             'TijsVerkoyen\\CssToInlineStyles\\' => 31,
             'Tightenco\\Ziggy\\' => 16,
+            'Themes\\Storefront\\' => 18,
             'Themes\\' => 7,
         ),
         'S' => 
@@ -210,6 +211,41 @@ class ComposerStaticInite85c05de514d404a4ed5c919fa5654fe
         array (
             'MyCLabs\\Enum\\' => 13,
             'Monolog\\' => 8,
+            'Modules\\Wishlist\\' => 17,
+            'Modules\\User\\' => 13,
+            'Modules\\Translation\\' => 20,
+            'Modules\\Transaction\\' => 20,
+            'Modules\\Tax\\' => 12,
+            'Modules\\Tag\\' => 12,
+            'Modules\\Support\\' => 16,
+            'Modules\\Slider\\' => 15,
+            'Modules\\Shipping\\' => 17,
+            'Modules\\Setting\\' => 16,
+            'Modules\\Review\\' => 15,
+            'Modules\\Report\\' => 15,
+            'Modules\\Product\\' => 16,
+            'Modules\\Payment\\' => 16,
+            'Modules\\Page\\' => 13,
+            'Modules\\Order\\' => 14,
+            'Modules\\Option\\' => 15,
+            'Modules\\Newsletter\\' => 19,
+            'Modules\\Meta\\' => 13,
+            'Modules\\Menu\\' => 13,
+            'Modules\\Media\\' => 14,
+            'Modules\\Import\\' => 15,
+            'Modules\\FlashSale\\' => 18,
+            'Modules\\Currency\\' => 17,
+            'Modules\\Coupon\\' => 15,
+            'Modules\\Core\\' => 13,
+            'Modules\\Contact\\' => 16,
+            'Modules\\Compare\\' => 16,
+            'Modules\\Checkout\\' => 17,
+            'Modules\\Category\\' => 17,
+            'Modules\\Cart\\' => 13,
+            'Modules\\Brand\\' => 14,
+            'Modules\\Attribute\\' => 18,
+            'Modules\\Admin\\' => 14,
+            'Modules\\Account\\' => 16,
             'Modules\\' => 8,
             'Mehedi\\Stylist\\' => 15,
             'Matrix\\' => 7,
@@ -344,6 +380,10 @@ class ComposerStaticInite85c05de514d404a4ed5c919fa5654fe
         'Tightenco\\Ziggy\\' => 
         array (
             0 => __DIR__ . '/..' . '/tightenco/ziggy/src',
+        ),
+        'Themes\\Storefront\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Themes/Storefront',
         ),
         'Themes\\' => 
         array (
@@ -581,6 +621,146 @@ class ComposerStaticInite85c05de514d404a4ed5c919fa5654fe
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
+        ),
+        'Modules\\Wishlist\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Modules/Wishlist',
+        ),
+        'Modules\\User\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Modules/User',
+        ),
+        'Modules\\Translation\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Modules/Translation',
+        ),
+        'Modules\\Transaction\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Modules/Transaction',
+        ),
+        'Modules\\Tax\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Modules/Tax',
+        ),
+        'Modules\\Tag\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Modules/Tag',
+        ),
+        'Modules\\Support\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Modules/Support',
+        ),
+        'Modules\\Slider\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Modules/Slider',
+        ),
+        'Modules\\Shipping\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Modules/Shipping',
+        ),
+        'Modules\\Setting\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Modules/Setting',
+        ),
+        'Modules\\Review\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Modules/Review',
+        ),
+        'Modules\\Report\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Modules/Report',
+        ),
+        'Modules\\Product\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Modules/Product',
+        ),
+        'Modules\\Payment\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Modules/Payment',
+        ),
+        'Modules\\Page\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Modules/Page',
+        ),
+        'Modules\\Order\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Modules/Order',
+        ),
+        'Modules\\Option\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Modules/Option',
+        ),
+        'Modules\\Newsletter\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Modules/Newsletter',
+        ),
+        'Modules\\Meta\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Modules/Meta',
+        ),
+        'Modules\\Menu\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Modules/Menu',
+        ),
+        'Modules\\Media\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Modules/Media',
+        ),
+        'Modules\\Import\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Modules/Import',
+        ),
+        'Modules\\FlashSale\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Modules/FlashSale',
+        ),
+        'Modules\\Currency\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Modules/Currency',
+        ),
+        'Modules\\Coupon\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Modules/Coupon',
+        ),
+        'Modules\\Core\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Modules/Core',
+        ),
+        'Modules\\Contact\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Modules/Contact',
+        ),
+        'Modules\\Compare\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Modules/Compare',
+        ),
+        'Modules\\Checkout\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Modules/Checkout',
+        ),
+        'Modules\\Category\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Modules/Category',
+        ),
+        'Modules\\Cart\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Modules/Cart',
+        ),
+        'Modules\\Brand\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Modules/Brand',
+        ),
+        'Modules\\Attribute\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Modules/Attribute',
+        ),
+        'Modules\\Admin\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Modules/Admin',
+        ),
+        'Modules\\Account\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Modules/Account',
         ),
         'Modules\\' => 
         array (
@@ -1849,7 +2029,6 @@ class ComposerStaticInite85c05de514d404a4ed5c919fa5654fe
         'Collective\\Html\\HtmlServiceProvider' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlServiceProvider.php',
         'Complex\\Complex' => __DIR__ . '/..' . '/markbaker/complex/classes/src/Complex.php',
         'Complex\\Exception' => __DIR__ . '/..' . '/markbaker/complex/classes/src/Exception.php',
-        'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/AbstractField.php',
         'Cron\\CronExpression' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/CronExpression.php',
         'Cron\\DayOfMonthField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/DayOfMonthField.php',
@@ -4778,6 +4957,7 @@ class ComposerStaticInite85c05de514d404a4ed5c919fa5654fe
         'Modules\\Media\\Entities\\File' => __DIR__ . '/../..' . '/Modules/Media/Entities/File.php',
         'Modules\\Media\\Http\\Controllers\\Admin\\FileManagerController' => __DIR__ . '/../..' . '/Modules/Media/Http/Controllers/Admin/FileManagerController.php',
         'Modules\\Media\\Http\\Controllers\\Admin\\MediaController' => __DIR__ . '/../..' . '/Modules/Media/Http/Controllers/Admin/MediaController.php',
+        'Modules\\Media\\Http\\Controllers\\FileDownloadController' => __DIR__ . '/../..' . '/Modules/Media/Http/Controllers/FileDownloadController.php',
         'Modules\\Media\\Http\\Requests\\UploadMediaRequest' => __DIR__ . '/../..' . '/Modules/Media/Http/Requests/UploadMediaRequest.php',
         'Modules\\Media\\IconResolver' => __DIR__ . '/../..' . '/Modules/Media/IconResolver.php',
         'Modules\\Media\\Providers\\MediaServiceProvider' => __DIR__ . '/../..' . '/Modules/Media/Providers/MediaServiceProvider.php',
@@ -8071,6 +8251,7 @@ class ComposerStaticInite85c05de514d404a4ed5c919fa5654fe
         'Symfony\\Component\\EventDispatcher\\Debug\\TraceableEventDispatcher' => __DIR__ . '/..' . '/symfony/event-dispatcher/Debug/TraceableEventDispatcher.php',
         'Symfony\\Component\\EventDispatcher\\Debug\\WrappedListener' => __DIR__ . '/..' . '/symfony/event-dispatcher/Debug/WrappedListener.php',
         'Symfony\\Component\\EventDispatcher\\DependencyInjection\\AddEventAliasesPass' => __DIR__ . '/..' . '/symfony/event-dispatcher/DependencyInjection/AddEventAliasesPass.php',
+        'Symfony\\Component\\EventDispatcher\\DependencyInjection\\ExtractingEventDispatcher' => __DIR__ . '/..' . '/symfony/event-dispatcher/DependencyInjection/RegisterListenersPass.php',
         'Symfony\\Component\\EventDispatcher\\DependencyInjection\\RegisterListenersPass' => __DIR__ . '/..' . '/symfony/event-dispatcher/DependencyInjection/RegisterListenersPass.php',
         'Symfony\\Component\\EventDispatcher\\EventDispatcher' => __DIR__ . '/..' . '/symfony/event-dispatcher/EventDispatcher.php',
         'Symfony\\Component\\EventDispatcher\\EventDispatcherInterface' => __DIR__ . '/..' . '/symfony/event-dispatcher/EventDispatcherInterface.php',
@@ -8518,6 +8699,7 @@ class ComposerStaticInite85c05de514d404a4ed5c919fa5654fe
         'Symfony\\Component\\Routing\\Loader\\GlobFileLoader' => __DIR__ . '/..' . '/symfony/routing/Loader/GlobFileLoader.php',
         'Symfony\\Component\\Routing\\Loader\\ObjectLoader' => __DIR__ . '/..' . '/symfony/routing/Loader/ObjectLoader.php',
         'Symfony\\Component\\Routing\\Loader\\PhpFileLoader' => __DIR__ . '/..' . '/symfony/routing/Loader/PhpFileLoader.php',
+        'Symfony\\Component\\Routing\\Loader\\ProtectedPhpFileLoader' => __DIR__ . '/..' . '/symfony/routing/Loader/PhpFileLoader.php',
         'Symfony\\Component\\Routing\\Loader\\XmlFileLoader' => __DIR__ . '/..' . '/symfony/routing/Loader/XmlFileLoader.php',
         'Symfony\\Component\\Routing\\Loader\\YamlFileLoader' => __DIR__ . '/..' . '/symfony/routing/Loader/YamlFileLoader.php',
         'Symfony\\Component\\Routing\\Matcher\\CompiledUrlMatcher' => __DIR__ . '/..' . '/symfony/routing/Matcher/CompiledUrlMatcher.php',

@@ -60,6 +60,25 @@ class File extends Model
     }
 
     /**
+     * Get the file's path.
+     *
+     * @param string $path
+     * @return string|null
+     */
+    public function getFilePath()
+    {
+        if (Storage::disk($this->disk)->exists($this->getAttributes()['path'])) {
+            return storage_path($this->disk) . '/' . $this->getAttributes()['path'];
+        }
+        return null;
+    }
+
+    public function product()
+    {
+
+    }
+
+    /**
      * Determine if the file type is image.
      *
      * @return bool

@@ -7,7 +7,7 @@
                 <li v-for="cartItem in cart.items">
                     <label>
                         <a :href="productUrl(cartItem.product)" class="product-name" v-text="cartItem.product.name"></a>
-                        <span class="product-quantity" v-text="'x' + cartItem.qty"></span>
+                        {{--<span class="product-quantity" v-text="'x' + cartItem.qty"></span>--}}
                     </label>
 
                     <span class="price-amount" v-html="cartItem.unitPrice.inCurrentCurrency.formatted"></span>
@@ -57,6 +57,7 @@
                 </li>
             </ul>
 
+            {{--
             <div class="shipping-methods" v-cloak>
                 <h6>{{ trans('storefront::cart.shipping_method') }}</h6>
 
@@ -85,6 +86,7 @@
                     {{ trans('storefront::cart.shipping_method_is_not_configured') }}
                 </span>
             </div>
+            --}}
 
             <div class="order-summary-total">
                 <label>{{ trans('storefront::cart.total') }}</label>

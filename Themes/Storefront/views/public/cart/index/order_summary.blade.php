@@ -46,6 +46,7 @@
                 </li>
             </ul>
 
+            {{--
             <div class="shipping-methods" v-cloak>
                 <h6>{{ trans('storefront::cart.shipping_method') }}</h6>
 
@@ -74,7 +75,8 @@
                     {{ trans('storefront::cart.shipping_method_is_not_configured') }}
                 </span>
             </div>
-
+            --}}
+            
             <div class="order-summary-total">
                 <label>{{ trans('storefront::cart.total') }}</label>
                 <span class="total-price" v-html="cart.total.inCurrentCurrency.formatted"></span>

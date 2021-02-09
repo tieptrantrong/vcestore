@@ -1,11 +1,7 @@
 @extends('public.layout')
 
 @section('title')
-    @if (request()->has('query'))
-        {{ trans('storefront::products.search_results_for') }}: "{{ request('query') }}"
-    @else
-        {{ trans('storefront::products.shop') }}
-    @endif
+{{$categoryName}}
 @endsection
 
 @push('globals')
@@ -16,8 +12,14 @@
     </script>
 @endpush
 
+@section('breadcrumb')
+    {!! $categoryBreadcrumb !!}
+
+    <li class="active">{{ $categoryName }}</li>
+@endsection
+
 @section('content')
-    <product-index
+    <product-category
         initial-query="{{ request('query') }}"
         initial-brand-name="{{ $brandName ?? '' }}"
         initial-brand-banner="{{ $brandBanner ?? '' }}"
@@ -39,97 +41,43 @@
             <div class="container">
                 <div class="row">
                     <div class="col products-left">
-                        <div class="d-none d-lg-block categories-banner" v-if="brandBanner">
-                            <img :src="brandBanner" alt="Brand banner">
-                        </div>
-
-                        <div class="d-none d-lg-block categories-banner" v-else-if="categoryBanner">
-                            <img :src="categoryBanner" alt="Category banner">
-                        </div>
-
                         <div class="search-result">
                             <div class="search-result-top">
-                                <div class="content-left">
-                                    <h4 v-if="queryParams.query">
-                                        {{ trans('storefront::products.search_results_for') }} <span>"@{{ queryParams.query }}"</span>
-                                    </h4>
-                                    <h4 v-else-if="queryParams.brand" v-text="initialBrandName"></h4>
-                                    <h4 v-else-if="queryParams.category" v-text="categoryName"></h4>
-                                    <h4 v-else-if="queryParams.tag" v-text="initialTagName"></h4>
-                                    <h4 v-else>{{ trans('storefront::products.shop') }}</h4>
-                                </div>
-
-                                <div class="content-right">
-                                    <div class="mobile-view-filter">
-                                        <i class="las la-sliders-h"></i>
-                                        {{ trans('storefront::products.filters') }}
-                                    </div>
-
-                                    <div class="sorting-bar">
-                                        <div class="form-group m-r-20">
-                                            <select
-                                                class="form-control custom-select-option right arrow-black"
-                                                v-model="queryParams.sort"
-                                                ref="sortSelect"
-                                            >
-                                                @foreach (trans('storefront::products.sort_options') as $key => $value)
-                                                    <option
-                                                        value="{{ $key }}"
-                                                        {{ request('sort', 'latest') === $key ? 'selected' : '' }}
-                                                    >
-                                                        {{ $value }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <select
-                                                class="form-control custom-select-option right arrow-black"
-                                                v-model="queryParams.perPage"
-                                                ref="perPageSelect"
-                                            >
-                                                @foreach (trans('storefront::products.per_page_options') as $key => $value)
-                                                    <option
-                                                        value="{{ $key }}"
-                                                        {{ request('perPage', 30) == $key ? 'selected' : '' }}
-                                                    >
-                                                        {{ $value }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
+                                <div class="content-left category-title">
+                                    <h2 class="h2">Pass {{$categoryName}} Certifications Exam in First Attempt Easily</h2>
+                                    <h3 class="h3">Real {{$categoryName}} Certification Exam Dumps, Practice Test Questions, <br> Accurate &amp; Verified Answers As Experienced in the Actual Test!</h3>
                                 </div>
                             </div>
 
-                            <div class="search-result-middle" :class="{ empty: emptyProducts, loading: fetchingProducts }">
+                            <div class="category-tab clearfix">
+                                <ul class="nav nav-tabs tabs">
+                                    <li class="nav-item">
+                                        <a href="#category-exams" data-toggle="tab" class="nav-link" :class="{ active: activeTab === 'category-exams' }">
+                                            <div class="border"></div>
+                                            {{ $categoryName . ' Exams'}}
+                                        </a>
+                                    </li>
+    
+                                    <li class="nav-item">
+                                        <a href="#category-certificates" data-toggle="tab" class="nav-link" :class="{ active: activeTab === 'category-certificates' }">
+                                            <div class="border"></div>
+                                            {{ $categoryName . ' Certifications'}}
+                                        </a>
+                                    </li>
 
-                                <div class="table-view-products">
-                                    <product-table-view :products="products"></product-table-view>
+                                    <li class="nav-item">
+                                        <a href="#category-description" data-toggle="tab" class="nav-link" :class="{ active: activeTab === 'category-description' }">
+                                            <div class="border"></div>
+                                            {{ 'About ' . $categoryName }}
+                                        </a>
+                                    </li>
+                                </ul>
+    
+                                <div class="tab-content category-content">
+                                    @include('public.products.category.tab_exams')
+                                    @include('public.products.category.tab_certificates')
+                                    @include('public.products.category.tab_description')
                                 </div>
-
-                                <div class="empty-message" v-if="! fetchingProducts && emptyProducts">
-                                    @include('public.products.index.empty_results_logo')
-
-                                    <h2>{{ trans('storefront::products.no_product_found') }}</h2>
-                                </div>
-                            </div>
-
-                            <div class="search-result-bottom" v-if="! emptyProducts">
-                                <span class="showing-results" v-text="showingResults"></span>
-
-                                <v-pagination
-                                    :total-page="totalPage"
-                                    :current-page="queryParams.page"
-                                    @page-changed="changePage"
-                                    v-if="products.total > queryParams.perPage"
-                                >
-                                </v-pagination>
-                            </div>
-
-                            <div id="description" class="description">
-                                {!! $categoryDes !!}
                             </div>
                         </div>
                     </div>
@@ -146,10 +94,10 @@
                         <div class="d-none">
                             @include('public.products.index.filter')
                         </div>
-                        @include('public.products.index.hot_products')
+                        @include('public.layout.right_sidebar')
                     </div>
                 </div>
             </div>
         </section>
-    </product-index>
+    </product-category>
 @endsection

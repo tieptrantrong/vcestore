@@ -17,13 +17,14 @@ return [
         'price' => 'Price',
         'inventory' => 'Inventory',
         'public_resources' => 'Public Resources',
+        'children' => 'Children',
         'product_urls' => 'Private Product',
         'images' => 'Images',
         'seo' => 'SEO',
         'related_products' => 'Related Products',
         'up_sells' => 'Up-Sells',
         'cross_sells' => 'Cross-Sells',
-        'additional' => 'Additional',
+        'additional' => 'Additional'
     ],
     'form' => [
         'enable_the_product' => 'Enable the product',
@@ -42,6 +43,7 @@ return [
         'base_image' => 'Base Image',
         'additional_images' => 'Additional Images',
         'public_resources' => 'Public Resources',
+        'children' => 'Children',
         'product_url' => 'Private Product',
     ],
     'private_product' => [

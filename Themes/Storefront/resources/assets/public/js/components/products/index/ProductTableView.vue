@@ -9,7 +9,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="product in products.data" :key="product.id">
+                <tr v-for="product in products.data" v-if="isCertificate(product)" :key="product.id">
                     <td class="center-align-product"><a :href="productUrl(product.slug)">{{product.name}}</a></td>
                     <td class="title-product"><a :href="productUrl(product.slug)">{{product.title}}</a></td>
                     <td class="center-align-product">{{product.public_resources.length}}</td>
@@ -22,7 +22,7 @@
 <script>
 
     export default {
-        props: ['products'],
+        props: ['products', 'is_certificate'],
         methods: {
 
             productUrl(slug) {
@@ -32,6 +32,10 @@
             categoryUrl(slug) {
                 return route('categories.products.index', slug);
             },
+
+            isCertificate(product) {
+                return product.is_certificate == this.is_certificate;
+            }
         },
     };
 </script>

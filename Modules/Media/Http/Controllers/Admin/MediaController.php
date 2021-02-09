@@ -43,11 +43,19 @@ class MediaController
         $file = $request->file('file');
         $fileHash = str_replace('.' . $file->extension(), '', $file->hashName());
         $fileName = $fileHash . '.' . $file->getClientOriginalExtension();
-        $path = Storage::putFileAs('media', $file, $fileName);
+        $path = '';
+        $disk = '';
+        if ($file->getClientOriginalExtension() === 'vce') {
+            $path = Storage::disk('private_storage')->putFileAs('vces', $file, $fileName);
+            $disk = 'private_storage';
+        } else {
+            $path = Storage::putFileAs('media', $file, $fileName);
+            $disk = config('filesystems.default');
+        }
         $mime = $file->getClientOriginalExtension() === 'vce' ? 'vce/octet-stream' : $file->getClientMimeType();
         return File::create([
             'user_id' => auth()->id(),
-            'disk' => config('filesystems.default'),
+            'disk' => $disk,
             'filename' => $file->getClientOriginalName(),
             'path' => $path,
             'extension' => $file->getClientOriginalExtension() ?? '',

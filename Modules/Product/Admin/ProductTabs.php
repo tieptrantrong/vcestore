@@ -18,6 +18,7 @@ class ProductTabs extends Tabs
             ->add($this->general())
             ->add($this->price())
             ->add($this->inventory())
+            ->add($this->children())
             ->add($this->productUrls())
             ->add($this->publicResources())
             ->add($this->images())
@@ -102,6 +103,18 @@ class ProductTabs extends Tabs
         return tap(new Tab('public_resources', trans('product::products.tabs.public_resources')), function (Tab $tab) {
             $tab->weight(20);
             $tab->view('product::admin.products.tabs.public_resources');
+        });
+    }
+
+    private function children()
+    {
+        if (! auth()->user()->hasAccess('admin.media.index')) {
+            return;
+        }
+
+        return tap(new Tab('children', trans('product::products.tabs.children')), function (Tab $tab) {
+            $tab->weight(20);
+            $tab->view('product::admin.products.tabs.children');
         });
     }
 

@@ -60,6 +60,13 @@ return [
             'visibility' => 'public',
         ],
 
+        'private_storage' => [
+            'driver' => 'local',
+            'root' => storage_path('private_storage'),
+            'url' => env('APP_URL') . '/private_storage',
+            'visibility' => 'private',
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),

@@ -20,6 +20,7 @@ class ProductIndexPageComposer
             'categories' => $this->categories(),
             'maxPrice' => $this->maxPrice(),
             'latestProducts' => $this->latestProducts(),
+            'categoryBreadcrumb' => $this->getCategoryBreadCrumb(),
         ]);
     }
 
@@ -39,5 +40,10 @@ class ProductIndexPageComposer
     private function latestProducts()
     {
         return Product::forCard()->take(5)->latest()->get()->map->clean();
+    }
+
+    private function getCategoryBreadCrumb()
+    {
+        return "<li><a href='". route('categories.index') . "'> Certification Providers</a></li>";
     }
 }

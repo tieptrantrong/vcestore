@@ -20,7 +20,7 @@
             </ul>
 
             <div class="product-quantity">
-                {{ cartItem.qty }} x <span v-html="cartItem.unitPrice.inCurrentCurrency.formatted"></span>
+                <!--{{ cartItem.qty }} x --><span v-html="cartItem.unitPrice.inCurrentCurrency.formatted"></span>
             </div>
         </div>
 
