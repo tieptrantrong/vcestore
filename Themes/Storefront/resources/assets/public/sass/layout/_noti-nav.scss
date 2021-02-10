@@ -1,0 +1,53 @@
+.noti-nav-wrap {
+    height: 36px;
+    background-image: linear-gradient(to right, #CC66CC , #005B97);
+    color: white;
+    font-size: 16px;
+    .noti-bold {
+        font-size: 22px;
+        font-weight: bold;
+    }
+    .closebtn {
+        color: white;
+        font-weight: bold;
+        float: right;
+        font-size: 22px;
+        line-height: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    
+    .closebtn:hover {
+        color: black;
+    }
+}
+
+.message-container {
+    background-color: var(--color-primary);
+}
+
+.message-nav {
+    height: 36px;  
+    overflow: hidden;
+    position: relative;
+}
+.message-nav div {
+    font-size: 14px;
+    color: white;
+    position: absolute;
+    white-space: nowrap;
+    //width: 100%;
+    //height: 100%;
+    margin: 0;
+    line-height: 36px;
+    text-align: center;
+    /* Starting position */
+    //-moz-transform:translateX(100%);
+    //-webkit-transform:translateX(100%);  
+    //transform:translateX(100%);
+    /* Apply animation to this element */  
+    //-moz-animation: message-nav 30s linear infinite;
+    //-webkit-animation: message-nav 30s linear infinite;
+    //animation: message-nav 30s linear infinite;
+}
+/* Move it (define the animation) */

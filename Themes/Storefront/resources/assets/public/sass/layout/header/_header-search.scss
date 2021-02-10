@@ -13,6 +13,7 @@
         display: flex;
         border: 1px solid $border-color;
         border-radius: $radius-default;
+        background-color: white;
 
         .search-input {
             height: 58px;

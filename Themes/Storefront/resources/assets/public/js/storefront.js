@@ -528,4 +528,19 @@ $(() => {
             $('.btn-number.btn-plus').attr('disabled', true);
         }
     });
+
+    $(document).ready(() => {
+        var $parentWidth = $('.message-nav').outerWidth();
+        var $scrollWidth = $('.message-scroll').outerWidth();
+        $('.message-scroll').css({'right': -$scrollWidth + 'px'});
+        function scroll() {
+            $('.message-scroll').animate({
+                right: $parentWidth
+            }, 30000, function() {
+            $('.message-scroll').css({'right': -$scrollWidth + 'px'});
+                scroll();
+            });
+        }
+        scroll();
+    });
 });

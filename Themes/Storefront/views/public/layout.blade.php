@@ -15,7 +15,7 @@
 
         @stack('meta')
 
-        <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600&display=swap" rel="stylesheet">
 
         @if (is_rtl())
             <link rel="stylesheet" href="{{ v(Theme::url('public/css/app.rtl.css')) }}">
@@ -91,9 +91,10 @@
             --color-primary-transparent-lite: {{ color2rgba($themeColor, 0.3) }};"
     >
         <div class="wrapper" id="app">
-            @include('public.layout.top_nav')
+            @include('public.layout.noti_nav')
             @include('public.layout.header')
             @include('public.layout.navigation')
+            @include('public.layout.message_nav')
             @include('public.layout.breadcrumb')
 
             @yield('content')

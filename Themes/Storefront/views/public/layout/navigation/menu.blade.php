@@ -1,4 +1,4 @@
-<li class="{{ mega_menu_classes($menu, $type) }}">
+<li class="{{ mega_menu_classes($menu, $type) }}{{ (Request::url() === $menu->url()) ? ' active' : '' }}">
     <a href="{{ $menu->url() }}" class="nav-link menu-item" target="{{ $menu->target() }}" data-text="{{ $menu->name() }}">
         @if ($type === 'category_menu' && $menu->hasIcon())
             <span class="menu-item-icon">
