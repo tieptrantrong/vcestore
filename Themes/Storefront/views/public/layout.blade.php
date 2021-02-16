@@ -70,6 +70,8 @@
                     'storefront::product_card.seconds': '{{ trans("storefront::product_card.seconds") }}',
                     'storefront::product_card.title_product': '{{ trans("storefront::product_card.title_product") }}',
                     'storefront::product_card.title_exam': '{{ trans("storefront::product_card.title_exam") }}',
+                    'storefront::product_card.title_vendor': '{{ trans("storefront::product_card.title_vendor") }}',
+                    'storefront::product_card.title_filename': '{{ trans("storefront::product_card.title_filename") }}',
                     'storefront::product_card.title_files': '{{ trans("storefront::product_card.title_files") }}',
                 },
             };

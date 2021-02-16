@@ -44,6 +44,16 @@
         }
     }
 
+    .home-brand-image {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        height: 90%;
+    }
+
+    .home-title {
+        margin-bottom: 30px;
+    }
+
     .empty-message {
         display: flex;
         justify-content: center;
@@ -86,5 +96,58 @@
                 max-height: 92px;
             }
         }
+        .home-imgWrap {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            min-height: 92px;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            img {
+                width: 100%;
+            }
+        }
     }
 }
+  
+  .card-info {
+    padding: 1rem;
+    display: grid;
+    grid-template-rows: 1fr 2.5rem;
+    grid-template-columns: 3fr 1fr;
+  }
+  
+  .card-title {
+    font-size: 2rem;
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+  }
+  
+  .card-icon {
+    grid-row: 1 / 2;
+    grid-column: 2 / 3;
+    justify-self: right;
+    width: 30px;
+    height: 30px;
+    background-color: LightBlue;
+    border-radius: 100%;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+  }
+  
+  .card-author {
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
+    align-self: bottom;
+  }
+  
+  .card-stats {
+    align-self: bottom;
+    justify-self: right;
+   
+  }

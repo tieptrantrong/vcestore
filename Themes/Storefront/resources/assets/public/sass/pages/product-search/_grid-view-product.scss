@@ -16,6 +16,26 @@
     }
 }
 
+
+.home-products {
+    .product-card {
+        padding: 0px;
+        border: none;
+    }
+    .product-card-top {
+        border: 1px solid #ebebeb;
+    }
+    .product-card .product-image {
+        height: 150px;
+    }
+    .product-card .product-title h6 {
+        background: transparent;
+    }
+    .product-card {
+        margin-bottom: 10px;
+    }
+}
+
 @media screen and (max-width: 1700px) {
     .grid-view-products {
         > .col {

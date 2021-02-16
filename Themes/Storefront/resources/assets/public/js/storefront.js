@@ -532,6 +532,7 @@ $(() => {
     $(document).ready(() => {
         var $parentWidth = $('.message-nav').outerWidth();
         var $scrollWidth = $('.message-scroll').outerWidth();
+        $('.message-nav').css({'visibility': 'visible'});
         $('.message-scroll').css({'right': -$scrollWidth + 'px'});
         function scroll() {
             $('.message-scroll').animate({

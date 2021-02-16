@@ -183,6 +183,10 @@
         z-index: 0;
     }
 
+    .product-card-title {
+        padding-bottom: 0px;
+    }
+
     .product-rating {
         margin-bottom: 10px;
         transition: $transition-primary;
@@ -192,7 +196,7 @@
         }
     }
 
-    .product-name {
+    .product-name, .product-title {
         display: block;
         color: $color-black;
         transition: $transition-primary;

@@ -166,7 +166,6 @@ class Product extends Model
     {
         $query->withName()
             ->withBaseImage()
-            ->withPublicResources()
             ->withPrice()
             ->withCount('options')
             ->with('reviews')
@@ -636,7 +635,6 @@ class Product extends Model
             ->withoutGlobalScope('active')
             ->withName()
             ->withBaseImage()
-            ->withPublicResources()
             ->withPrice()
             ->addSelect(['id', 'is_active', 'created_at'])
             ->when($request->has('except'), function ($query) use ($request) {

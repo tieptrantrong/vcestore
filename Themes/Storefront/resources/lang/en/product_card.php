@@ -16,6 +16,8 @@ return [
     'hours' => 'Hours',
     'minutes' => 'Minutes',
     'seconds' => 'Seconds',
+    'title_vendor' => 'Vendor',
+    'title_filename' => 'File Name',
     'title_product' => 'Title',
     'title_exam' => 'Exam',
     'title_files' => 'Files',

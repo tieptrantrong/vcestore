@@ -20,6 +20,14 @@
     }
 }
 
+.home-title {
+    margin-bottom: 30px;
+}
+
+.table-header-bg {
+    background: var(--color-primary);
+}
+
 @media screen and (min-width: 1650px) {
     .home-section-inner {
         .home-slider-wrap {
