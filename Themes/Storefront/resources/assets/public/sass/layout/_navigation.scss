@@ -370,7 +370,7 @@
     font-size: 16px;
     text-transform: uppercase;
     font-weight: bold;
-    border-right: 1px solid #B3B3B3;
+    border-right: 1px solid var(--color-border);
     padding-right: 28px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -389,6 +389,14 @@
             }
         }
     }
+}
+
+.message-container {
+    visibility: visible;
+}
+
+.noti-nav-wrap .closebtn {
+    margin-right: 0px;
 }
 
 @media screen and (max-width: 1400px) {
@@ -426,6 +434,14 @@
 @media screen and (max-width: $lg) {
     .navigation-wrap {
         display: none;
+    }
+    
+    .message-container {
+        visibility: hidden;
+    }
+
+    .noti-nav-wrap .closebtn {
+        margin-right: 15px;
     }
 
     .navigation-inner {

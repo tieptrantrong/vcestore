@@ -23,6 +23,7 @@ return [
     'description' => 'Description',
     'specification' => 'Specification',
     'public_resources' => 'Free VCE Files',
+    'private_resources' => 'Premium VCE Files',
     'reviews' => 'Reviews (:count)',
     'add_a_review' => 'Add a review',
     'review_form' => [

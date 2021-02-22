@@ -34,6 +34,7 @@ class QueryStringFilter
         'new_from',
         'new_to',
         'is_certificate',
+        'vendor',
         'questions'
     ];
 

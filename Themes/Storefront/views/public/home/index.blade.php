@@ -21,7 +21,7 @@
         inline-template
         >
             <div class="container">
-                <h1 class="home-title">Top Certifications</h1>
+                <h1 class="home-title">TOP CERTIFICATIONS</h1>
                 <div class="grid-view-products">
                     <home-product-card-grid-view v-for="product in products.data" :key="product.id" :product="product"></home-product-card-grid-view>
                 </div>       
@@ -36,7 +36,7 @@
         inline-template
         >
             <div class="container">
-                <h1 class="home-title">Top Exams</h1>
+                <h1 class="home-title">TOP 50 PRACTICE EXAMS</h1>
                 <home-product-table-view :products="products" :is_certificate="true"></home-product-table-view>
             </div>
         

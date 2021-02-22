@@ -15,8 +15,8 @@
 
         @stack('meta')
 
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600&display=swap" rel="stylesheet">
-
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
         @if (is_rtl())
             <link rel="stylesheet" href="{{ v(Theme::url('public/css/app.rtl.css')) }}">
         @else
@@ -90,7 +90,8 @@
         style="--color-primary: #{{ $themeColor->getHex() }};
             --color-primary-hover: #{{ $themeColor->darken(8) }};
             --color-primary-transparent: {{ color2rgba($themeColor, 0.8) }};
-            --color-primary-transparent-lite: {{ color2rgba($themeColor, 0.3) }};"
+            --color-primary-transparent-lite: {{ color2rgba($themeColor, 0.3) }};
+            --color-border: #B3B3B3"
     >
         <div class="wrapper" id="app">
             @include('public.layout.noti_nav')

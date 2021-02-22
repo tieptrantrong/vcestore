@@ -2,5 +2,11 @@
         'footer/_footer-bottom';
 
 .footer {
-    padding-top: 70px;
+    padding-top: 35px;
+}
+
+.footer-wrap {
+    margin-top: 35px;
+    border-top: 1px solid var(--color-border);
+    background-color: #f7f8fa;
 }

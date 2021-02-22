@@ -65,6 +65,7 @@ class Product extends Model
         'questions',
         'new_from',
         'new_to',
+        'vendor'
     ];
 
     /**
@@ -101,7 +102,7 @@ class Product extends Model
      */
     protected $appends = [
         'base_image', 'formatted_price', 'rating_percent', 'is_in_stock', 'is_out_of_stock',
-        'is_new', 'has_percentage_special_price', 'special_price_percent', 'public_resources'
+        'is_new', 'has_percentage_special_price', 'special_price_percent', 'public_resources', 'private_resources'
     ];
 
     /**
@@ -178,6 +179,7 @@ class Product extends Model
                 'products.new_from',
                 'products.new_to',
                 'products.is_certificate',
+                'products.vendor',
                 'products.questions'
             ]);
     }
@@ -350,10 +352,29 @@ class Product extends Model
             ->sortBy('pivot.id');
     }
 
+        /**
+     * Get product's public resources.
+     *
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    public function getPrivateResourcesAttribute()
+    {
+        return $this->files
+            ->where('pivot.zone', 'private_resources')
+            ->sortBy('pivot.id');
+    }
+
     public function hasPublicResource($id)
     {
         return $this->files
         ->where('pivot.zone', 'public_resources')
+        ->where('pivot.file_id', $id)->count() > 0;
+    }
+
+    public function hasPrivateResource($id)
+    {
+        return $this->files
+        ->where('pivot.zone', 'private_resources')
         ->where('pivot.file_id', $id)->count() > 0;
     }
 

@@ -43,6 +43,7 @@ return [
         'base_image' => 'Base Image',
         'additional_images' => 'Additional Images',
         'public_resources' => 'Public Resources',
+        'private_resources' => 'Private Resources',
         'children' => 'Children',
         'product_url' => 'Private Product',
     ],

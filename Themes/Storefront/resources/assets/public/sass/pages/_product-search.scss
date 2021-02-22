@@ -16,16 +16,6 @@
     }
 }
 
-.category-certificates {
-    padding: 30px;
-    li {
-        font-size: 16px;
-        padding-left: 23px;
-        position: relative;
-        margin-bottom: 4px;
-    }
-}
-
 .provider-title {
     margin-bottom: 30px;
     font-size: 20px;
@@ -39,9 +29,28 @@
 }
 
 .category-content {
-    padding: 20px;
+    padding: 26px 52px;
     border: 1px solid $color-gray-lite;
     border-radius: 0 10px 10px 10px;
+
+    li {
+        font-size: 17px;
+        padding-left: 23px;
+        position: relative;
+        margin-bottom: 4px;
+        list-style-type: none;
+    }
+
+    li::before {
+        content: '';
+        position: absolute;
+        top: 10px;
+        left: 0;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: #2b8aeb;
+    }
 }
 
 .category-tab {

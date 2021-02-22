@@ -80,6 +80,7 @@ class ProductImport implements OnEachRow, WithChunkReading, WithHeadingRow
             'base_image' => $data['base_image'],
             'additional_images' => $this->explode($data['additional_images']),
             'public_resources' => $this->explode($data['public_resources']),
+            'private_resources' => $this->explode($data['private_resources']),
         ];
     }
 

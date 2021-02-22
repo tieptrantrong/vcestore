@@ -25,6 +25,15 @@ class FileDownloadController
         if (!$product || !$file) {
             return abort(404);
         }
+        if ($product->hasPrivateResource($resource_id)) {
+            return abort(404);
+            if ($file->extension == 'vce') {
+                $filePath = $file->getFilePath();
+                if ($filePath) {
+                    return Response::download($filePath);
+                }
+            }
+        }
         if ($product->hasPublicResource($resource_id)) {
             if ($file->extension == 'vce') {
                 $filePath = $file->getFilePath();

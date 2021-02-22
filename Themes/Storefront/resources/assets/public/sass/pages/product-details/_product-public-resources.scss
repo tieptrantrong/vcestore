@@ -1,9 +1,9 @@
-.table-public-resources {
+.table-public-resources, .table-private-resources {
     margin-top: 30px;
 }
 
 @media screen and (max-width: $lg) {
-	.table-public-resources {
+	.table-public-resources, .table-private-resources {
 		padding-bottom: 30px;
 	}
 }

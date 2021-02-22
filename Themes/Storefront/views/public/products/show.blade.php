@@ -203,13 +203,20 @@
                                 </div>
                             </div>
 
-                            @include('public.products.show.right_sidebar')
+                            {{--@include('public.products.show.right_sidebar')--}}
                         </div>
 
                         <div class="product-details-bottom flex-column-reverse flex-lg-row">
                             <div class="product-details-bottom-inner">
                                 <div class="product-details-tab clearfix">
                                     <ul class="nav nav-tabs tabs">
+
+                                        <li class="nav-item">
+                                            <a href="#private-resources" data-toggle="tab" class="nav-link" :class="{ active: activeTab === 'private-resources' }">
+                                                {{ trans('storefront::product.private_resources') }}
+                                            </a>
+                                        </li>
+
                                         <li class="nav-item">
                                             <a href="#public-resources" data-toggle="tab" class="nav-link" :class="{ active: activeTab === 'public-resources' }">
                                                 {{ trans('storefront::product.public_resources') }}
@@ -240,6 +247,7 @@
                                     </ul>
 
                                     <div class="tab-content">
+                                        @include('public.products.show.tab_private_resources')
                                         @include('public.products.show.tab_public_resources')
                                         @include('public.products.show.tab_description')
                                         @include('public.products.show.tab_specification')

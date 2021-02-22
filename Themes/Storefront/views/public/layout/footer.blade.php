@@ -3,9 +3,9 @@
         <div class="footer">
             <div class="footer-top">
                 <div class="row">
-                    <div class="col-lg-5 col-md-8">
+                    <div class="col-lg-6 col-md-8">
                         <div class="contact-us">
-                            <h4 class="title">{{ trans('storefront::layout.contact_us') }}</h4>
+                            {{--<h4 class="title">{{ trans('storefront::layout.contact_us') }}</h4>--}}
 
                             <ul class="list-inline contact-info">
                                 @if (setting('store_phone'))
@@ -44,9 +44,9 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-md-5">
+                    <div class="col-lg-4 col-md-5">
                         <div class="footer-links">
-                            <h4 class="title">{{ trans('storefront::layout.my_account') }}</h4>
+                            {{--<h4 class="title">{{ trans('storefront::layout.my_account') }}</h4>--}}
 
                             <ul class="list-inline">
                                 <li>
@@ -85,9 +85,9 @@
                     </div>
 
                     @if ($footerMenuOne->isNotEmpty())
-                        <div class="col-lg-3 col-md-5">
+                        <div class="col-lg-4 col-md-5">
                             <div class="footer-links">
-                                <h4 class="title">{{ setting('storefront_footer_menu_one_title') }}</h4>
+                                {{--<h4 class="title">{{ setting('storefront_footer_menu_one_title') }}</h4>--}}
 
                                 <ul class="list-inline">
                                     @foreach ($footerMenuOne as $menuItem)
@@ -103,9 +103,9 @@
                     @endif
 
                     @if ($footerMenuTwo->isNotEmpty())
-                        <div class="col-lg-3 col-md-5">
+                        <div class="col-lg-4 col-md-5">
                             <div class="footer-links">
-                                <h4 class="title">{{ setting('storefront_footer_menu_two_title') }}</h4>
+                                {{--<h4 class="title">{{ setting('storefront_footer_menu_two_title') }}</h4>--}}
 
                                 <ul class="list-inline">
                                     @foreach ($footerMenuTwo as $menuItem)
@@ -119,7 +119,8 @@
                             </div>
                         </div>
                     @endif
-
+                        
+                    {{--
                     @if ($footerTags->isNotEmpty())
                         <div class="col-lg-4 col-md-7">
                             <div class="footer-links footer-tags">
@@ -137,6 +138,7 @@
                             </div>
                         </div>
                     @endif
+                    --}}
                 </div>
             </div>
 

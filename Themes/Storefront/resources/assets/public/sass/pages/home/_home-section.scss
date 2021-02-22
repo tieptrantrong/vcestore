@@ -24,8 +24,35 @@
     margin-bottom: 30px;
 }
 
-.table-header-bg {
-    background: var(--color-primary);
+.vce-exam-hot {
+    .table-header-bg {
+        background: #FFD6AE;
+    }
+    
+    .table td {
+        padding: 20px 30px;
+        border-color: #FFF5EB;
+    }
+
+    tbody tr:hover {
+        border-left: 4px solid var(--color-primary) !important;
+    }
+
+    thead {
+        th {
+            font-weight: bold;
+        }
+    }
+
+    .table-striped tbody tr {
+        background-color: white;
+        border-left: 4px solid white;
+    }
+
+    .table-striped tbody tr:nth-of-type(odd) {
+        background-color: #FFF5EB;
+        border-left: 4px solid #FFF5EB;
+    }
 }
 
 @media screen and (min-width: 1650px) {
