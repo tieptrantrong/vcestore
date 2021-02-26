@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Modules\Order\Entities\Order;
+use Illuminate\Support\Facades\Auth;
 
 class FileDownloadController
 {
@@ -26,11 +28,16 @@ class FileDownloadController
             return abort(404);
         }
         if ($product->hasPrivateResource($resource_id)) {
-            return abort(404);
-            if ($file->extension == 'vce') {
-                $filePath = $file->getFilePath();
-                if ($filePath) {
-                    return Response::download($filePath);
+            $orders = Auth::user()->orders()->get();
+            foreach ($orders as $order) {
+                if ($order->status == 'completed') {
+                    $products = $order->products()->get()->pluck('product_id')->toArray();
+                    if (in_array($product_id, $products) && $file->extension == 'vce') {
+                        $filePath = $file->getFilePath();
+                        if ($filePath) {
+                            return Response::download($filePath);
+                        }
+                    }
                 }
             }
         }
