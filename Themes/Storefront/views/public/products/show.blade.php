@@ -101,7 +101,7 @@
                                                         <i class="la-heart" :class="inWishlist ? 'las' : 'lar'"></i>
                                                         {{ trans('storefront::product.wishlist') }}
                                                     </button>
-
+                                                    {{--
                                                     <button
                                                         class="btn btn-compare"
                                                         :class="{ 'added': inCompareList }"
@@ -110,9 +110,10 @@
                                                         <i class="las la-random"></i>
                                                         {{ trans('storefront::product.compare') }}
                                                     </button>
+                                                    --}}
                                                 </div>
                                             </div>
-
+                                            @if (!$show_private_resources)
                                             <div class="details-info-middle">
                                                 <div class="product-price" v-html="price">
                                                     {!! $product->formatted_price !!}
@@ -166,6 +167,7 @@
                                                     </div>
                                                 </form>
                                             </div>
+                                            @endif
 
                                             <div class="details-info-bottom">
                                                 <ul class="list-inline additional-info">
@@ -211,14 +213,16 @@
                                 <div class="product-details-tab clearfix">
                                     <ul class="nav nav-tabs tabs">
 
+                                        @if ($show_private_resources)
                                         <li class="nav-item">
-                                            <a href="#private-resources" data-toggle="tab" class="nav-link" :class="{ active: activeTab === 'private-resources' }">
+                                            <a href="#private-resources" data-toggle="tab" class="nav-link active">
                                                 {{ trans('storefront::product.private_resources') }}
                                             </a>
                                         </li>
+                                        @endif
 
                                         <li class="nav-item">
-                                            <a href="#public-resources" data-toggle="tab" class="nav-link" :class="{ active: activeTab === 'public-resources' }">
+                                            <a href="#public-resources" data-toggle="tab" class="nav-link {{ $show_private_resources ? '' : 'active' }}">
                                                 {{ trans('storefront::product.public_resources') }}
                                             </a>
                                         </li>
@@ -247,7 +251,9 @@
                                     </ul>
 
                                     <div class="tab-content">
+                                        @if ($show_private_resources)
                                         @include('public.products.show.tab_private_resources')
+                                        @endif
                                         @include('public.products.show.tab_public_resources')
                                         @include('public.products.show.tab_description')
                                         @include('public.products.show.tab_specification')
@@ -259,7 +265,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-xl-4">
+                    <div class="right-sidebar col-lg-4 col-xl-4">
                         @include('public.layout.right_sidebar')
                     </div>
                 </div>

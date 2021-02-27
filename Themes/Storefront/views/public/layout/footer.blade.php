@@ -1,4 +1,4 @@
-<footer class="footer-wrap">
+<footer class="footer-wrap session-dark">
     <div class="container">
         <div class="footer">
             <div class="footer-top">

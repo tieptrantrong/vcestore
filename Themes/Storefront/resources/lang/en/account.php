@@ -27,6 +27,7 @@ return [
         'view' => 'View',
         'view_order' => 'View Order',
         'no_orders' => 'You haven\'t placed any order yet.',
+        'exams' => 'Exams'
     ],
     'view_order' => [
         'view_order' => 'View Order',

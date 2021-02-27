@@ -1,4 +1,4 @@
-<div id="private-resources" class="tab-pane private-resources" :class="{ active: activeTab === 'private-resources' }">
+<div id="private-resources" class="tab-pane private-resources active">
     <table class="table table-bordered table-private-resources">
         <thead class="table-header-bg">
             <tr>

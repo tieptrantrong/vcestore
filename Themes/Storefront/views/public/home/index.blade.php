@@ -4,6 +4,9 @@
 
 @section('content')
 
+
+    @includeUnless(is_null($slider), 'public.home.sections.slider')
+
     <section class="vce-welcome">
         <div class="container">
             <h1 class="home-title">Pass Your Next Certification Exam Fast</h1>
@@ -15,7 +18,11 @@
         </div>
     </section>
 
-    <section class="vce-cer-hot">
+    @if (setting('storefront_features_section_enabled'))
+        <home-features :features="{{ json_encode($features) }}"></home-features>
+    @endif
+
+    <section class="vce-cer-hot session-dark">
         <certification-category
         initial-category-slug="top-certifications"
         inline-template
@@ -37,18 +44,11 @@
         >
             <div class="container">
                 <h1 class="home-title">TOP 50 PRACTICE EXAMS</h1>
-                <home-product-table-view :products="products" :is_certificate="true"></home-product-table-view>
+                <home-product-table-view :products="products" :products_l="productsL" :products_r="productsR" :is_certificate="true"></home-product-table-view>
             </div>
         
         </certification-category>
     </section>
-
-
-    @includeUnless(is_null($slider), 'public.home.sections.slider')
-
-    @if (setting('storefront_features_section_enabled'))
-        <home-features :features="{{ json_encode($features) }}"></home-features>
-    @endif
 
     @if (setting('storefront_featured_categories_section_enabled'))
         <featured-categories-table :data="{{ json_encode($featuredCategories) }}"></featured-categories-table>

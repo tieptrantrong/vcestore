@@ -6,6 +6,7 @@
                 <th>{{ trans('storefront::account.date') }}</th>
                 <th>{{ trans('storefront::account.orders.status') }}</th>
                 <th>{{ trans('storefront::account.orders.total') }}</th>
+                <th>{{ trans('storefront::account.orders.exams') }}</th>
                 <th>{{ trans('storefront::account.action') }}</th>
             </tr>
         </thead>
@@ -29,6 +30,12 @@
 
                     <td>
                         {{ $order->total->convert($order->currency, $order->currency_rate)->format($order->currency) }}
+                    </td>
+
+                    <td>
+                        @foreach ($order->products as $product)
+                            <a href="{{route('products.show', $product->slug)}}">{{($loop->index > 0) ? ', ' : ''}}{{$product->name}}</a>
+                        @endforeach
                     </td>
 
                     <td>

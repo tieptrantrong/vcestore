@@ -28,24 +28,18 @@ class FileDownloadController
             return abort(404);
         }
         if ($product->hasPrivateResource($resource_id)) {
-            $orders = Auth::user()->orders()->get();
-            foreach ($orders as $order) {
-                if ($order->status == 'completed') {
-                    $products = $order->products()->get()->pluck('product_id')->toArray();
-                    if (in_array($product_id, $products) && $file->extension == 'vce') {
-                        $filePath = $file->getFilePath();
-                        if ($filePath) {
-                            return Response::download($filePath);
-                        }
-                    }
+            if (Auth::user()->hasProduct($product_id) && $file->extension == 'vce') {
+                $filePath = $file->getFilePath();
+                if ($filePath) {
+                    return Response::download($filePath, $file->filename);
                 }
             }
         }
-        if ($product->hasPublicResource($resource_id)) {
+        else if ($product->hasPublicResource($resource_id)) {
             if ($file->extension == 'vce') {
                 $filePath = $file->getFilePath();
                 if ($filePath) {
-                    return Response::download($filePath);
+                    return Response::download($filePath, $file->filename);
                 }
             }
         }

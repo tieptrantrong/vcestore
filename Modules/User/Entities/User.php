@@ -13,6 +13,8 @@ use Cartalyst\Sentinel\Laravel\Facades\Activation;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 
+use Illuminate\Support\Facades\Log;
+
 class User extends EloquentUser implements AuthenticatableContract
 {
     use Authenticatable;
@@ -124,6 +126,20 @@ class User extends EloquentUser implements AuthenticatableContract
     public function orders()
     {
         return $this->hasMany(Order::class, 'customer_id');
+    }
+
+    public function hasProduct($productId)
+    {
+        $orders = $this->orders()->get();
+        foreach ($orders as $order) {
+            if ($order->status == 'completed') {
+                $products = $order->products()->get()->pluck('product_id')->toArray();
+                if (in_array($productId, $products)) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     /**

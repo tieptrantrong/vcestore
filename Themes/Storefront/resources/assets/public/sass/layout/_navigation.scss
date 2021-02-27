@@ -1,6 +1,8 @@
 .navigation-wrap {
     background: white;
+    border-top: 0.5px solid var(--color-border);
 }
+
 .navigation-inner {
     display: flex;
     align-items: center;

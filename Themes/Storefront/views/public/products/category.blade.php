@@ -81,7 +81,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-xl-4">
+                    <div class="right-sidebar col-lg-4 col-xl-4">
                         @if ($categories->isNotEmpty())
                         <div class="d-none browse-categories-wrap">
                             <h4 class="section-title">

@@ -8,6 +8,7 @@ use Modules\Product\Entities\Product;
 use Modules\Product\Events\ProductViewed;
 use Modules\Product\Filters\ProductFilter;
 use Modules\Product\Http\Middleware\SetProductSortOption;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -51,10 +52,10 @@ class ProductController extends Controller
         $relatedProducts = $product->relatedProducts()->forCard()->get();
         $upSellProducts = $product->upSellProducts()->forCard()->get();
         $review = $this->getReviewData($product);
-
+        $show_private_resources = Auth::user()->hasProduct($product->id);
         event(new ProductViewed($product));
 
-        return view('public.products.show', compact('product', 'relatedProducts', 'upSellProducts', 'review'));
+        return view('public.products.show', compact('product', 'relatedProducts', 'upSellProducts', 'review', 'show_private_resources'));
     }
 
     private function getReviewData(Product $product)

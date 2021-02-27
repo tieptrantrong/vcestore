@@ -12,7 +12,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="product in products.data" v-if="isCertificate(product)" :key="product.id">
+                            <tr v-for="product in products_l" v-if="isCertificate(product)" :key="product.id">
                                 <td class=""><a :href="productUrl(product.slug)">{{product.vendor}}</a></td>
                                 <td class=""><a :href="productUrl(product.slug)">{{product.name}}</a></td>
                                 <td class="w-100">{{product.title}}</td>
@@ -30,7 +30,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="product in products.data" v-if="isCertificate(product)" :key="product.id">
+                            <tr v-for="product in products_r" v-if="isCertificate(product)" :key="product.id">
                                 <td class=""><a :href="productUrl(product.slug)">{{product.vendor}}</a></td>
                                 <td class=""><a :href="productUrl(product.slug)">{{product.name}}</a></td>
                                 <td class="w-100">{{product.title}}</td>
@@ -50,7 +50,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="product in products.data" :key="product.id">
+                    <tr v-for="product in products.data" v-if="isCertificate(product)" :key="product.id">
                         <td class=""><a :href="productUrl(product.slug)">{{product.vendor}}</a></td>
                         <td class=""><a :href="productUrl(product.slug)">{{product.name}}</a></td>
                         <td class="w-100">{{product.title}}</td>
@@ -64,7 +64,7 @@
 <script>
 
     export default {
-        props: ['products', 'is_certificate'],
+        props: ['products', 'products_r', 'products_l', 'is_certificate'],
         methods: {
 
             productUrl(slug) {

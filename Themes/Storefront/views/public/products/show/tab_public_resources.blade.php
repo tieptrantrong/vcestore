@@ -1,4 +1,4 @@
-<div id="public-resources" class="tab-pane public-resources" :class="{ active: activeTab === 'public-resources' }">
+<div id="public-resources" class="tab-pane public-resources {{ $show_private_resources ? '' : 'active' }}">
     <table class="table table-bordered table-public-resources">
         <thead class="table-header-bg">
             <tr>

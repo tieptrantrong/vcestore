@@ -26,7 +26,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-xl-4">
+            <div class="right-sidebar col-lg-4 col-xl-4">
                 @include('public.layout.right_sidebar')
             </div>
         </div>
