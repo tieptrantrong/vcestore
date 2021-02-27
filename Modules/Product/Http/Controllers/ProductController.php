@@ -52,7 +52,7 @@ class ProductController extends Controller
         $relatedProducts = $product->relatedProducts()->forCard()->get();
         $upSellProducts = $product->upSellProducts()->forCard()->get();
         $review = $this->getReviewData($product);
-        $show_private_resources = Auth::user()->hasProduct($product->id);
+        $show_private_resources = Auth::check() ? Auth::user()->hasProduct($product->id) : false;
         event(new ProductViewed($product));
 
         return view('public.products.show', compact('product', 'relatedProducts', 'upSellProducts', 'review', 'show_private_resources'));
