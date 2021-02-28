@@ -20,8 +20,15 @@
 @section('content')
     <section class="custom-page-wrap clearfix">
         <div class="container">
-            <div class="custom-page-content clearfix">
-                {!! $page->body !!}
+            <div class="row">
+                <div class="col products-left">
+                    <div class="custom-page-content clearfix">
+                        {!! $page->body !!}
+                    </div>
+                </div>
+                <div class="right-sidebar col-lg-4 col-xl-4">
+                    @include('public.layout.right_sidebar')
+                </div>
             </div>
         </div>
     </section>
