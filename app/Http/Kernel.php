@@ -24,6 +24,7 @@ class Kernel extends HttpKernel
         \FleetCart\Http\Middleware\TrustProxies::class,
         \FleetCart\Http\Middleware\RedirectToInstallerIfNotInstalled::class,
         \FleetCart\Http\Middleware\RunUpdater::class,
+        \FleetCart\Http\Middleware\HttpsProtocol::class
     ];
 
     /**
