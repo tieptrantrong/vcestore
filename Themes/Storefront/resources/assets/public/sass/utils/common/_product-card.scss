@@ -87,11 +87,11 @@
     }
 
     .product-image {
-        height: 180px;
+        //height: 180px;
 
         .image-placeholder {
-            height: 85px;
-            width: 85px;
+            //height: 85px;
+            //width: 85px;
         }
     }
 
@@ -283,7 +283,7 @@
 @media screen and (max-width: 1800px) {
     .product-card {
         .product-image {
-            height: 160px;
+            //height: 160px;
         }
     }
 }
@@ -330,7 +330,7 @@
 
         .product-image {
             position: relative;
-            height: 80%;
+            //height: 80%;
             padding-bottom: 80%;
 
             img {
