@@ -16,7 +16,7 @@
 
         <li class="nav-item">
             <a class="nav-link" data-toggle="tab" href="#category-menu">
-                {{ trans('storefront::layout.categories') }}
+                {{ trans('storefront::layout.account') }}
             </a>
         </li>
     </ul>
@@ -27,7 +27,25 @@
         </div>
 
         <div id="category-menu" class="tab-pane">
-            @include('public.layout.sidebar_menu.menu', ['type' => 'category_menu', 'menu' => $categoryMenu])
+            <ul class="list-inline sidebar-menu">
+                <li>
+                    @auth
+                    <a href="{{ route('account.dashboard.index') }}" class="menu-item">
+                        <span class="menu-item-icon">
+                            <i class="las la-user"></i>
+                        </span>
+                        {{ trans('storefront::layout.account') }}
+                    </a>
+                    @else
+                    <a href="{{ route('login') }}" class="menu-item">
+                        <span class="menu-item-icon">
+                            <i class="las la-sign-in-alt"></i>
+                        </span>
+                        {{ trans('storefront::layout.login') }}
+                    </a>
+                    @endauth
+                </li>
+            </ul>
         </div>
     </div>
 </aside>

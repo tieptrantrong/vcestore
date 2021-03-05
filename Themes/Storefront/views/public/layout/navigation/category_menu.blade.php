@@ -1,3 +1,4 @@
+{{--
 @if ($categoryMenu->menus()->isNotEmpty())
 <div class="category-nav {{ request()->routeIs('home') ? 'show' : '' }}">
     <div class="category-nav-inner">
@@ -26,3 +27,4 @@
     </div>
 </div>
 @endif
+--}}
