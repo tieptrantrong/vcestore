@@ -24,7 +24,7 @@
 
 <div class="secureShopping">
     <p class="h4">Secure Shopping Experience</p>
-    <div class="cardsWrap"><img src="/static/img/cards.png" alt="We accept VISA, MasterCard, Maestro, American Express"></div>
+    <div class="cardsWrap"><img src="/static/img/cards.png" alt="We accept VISA, MasterCard"></div>
     <p>We provide secure shopping experience backed by High Security SSL from McAfee, so you are guaranteed that any your purchase on Exam-Labs is 100% safe.</p>
     <p class="customMargin">You will get access to your products immediately after we receive your payment.</p>
     <div class="mcafee">
