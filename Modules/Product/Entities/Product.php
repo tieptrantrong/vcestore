@@ -180,7 +180,8 @@ class Product extends Model
                 'products.new_to',
                 'products.is_certificate',
                 'products.vendor',
-                'products.questions'
+                'products.questions',
+                'products.updated_at',
             ]);
     }
 

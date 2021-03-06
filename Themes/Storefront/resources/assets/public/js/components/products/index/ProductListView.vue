@@ -2,7 +2,7 @@
     <div class="list-products">
         <ul class="vendorList">
             <li v-for="product in products.data" v-if="isCertificate(product)" :key="product.id">
-                <a :href="productUrl(product.slug)">{{product.name}}</a> - {{product.title}}
+                <a :href="productUrl(product.slug)">{{product.name}}</a> - {{product.title}} - <span class="updated-date">Last day to test: {{formatDate(product.updated_at)}}</span>
             </li>
         </ul>
     </div>
@@ -24,6 +24,11 @@
 
             isCertificate(product) {
                 return product.is_certificate == this.is_certificate;
+            },
+
+            formatDate(date) {
+                var mydate = new Date(date);
+                return mydate.toDateString();
             }
         },
     };

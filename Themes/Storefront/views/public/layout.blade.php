@@ -94,7 +94,7 @@
             --color-border: rgba(179,179,179,0.5)"
     >
         <div class="wrapper" id="app">
-            {{--@include('public.layout.top_nav')--}}
+            @include('public.layout.noti_nav')
             @include('public.layout.header')
             @include('public.layout.navigation')
             @include('public.layout.message_nav')

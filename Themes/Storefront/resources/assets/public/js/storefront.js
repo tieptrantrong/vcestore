@@ -544,4 +544,38 @@ $(() => {
         }
         scroll();
     });
+
+    function secondsToHms(d) {
+        d = Number(d);
+        var h = Math.floor(d / 3600);
+        var m = Math.floor(d % 3600 / 60);
+        var s = Math.floor(d % 3600 % 60);
+        return h + ':' + m + ':'  + s; 
+    }
+    $(document).ready(() => {
+
+        var interval = 172800000;
+        
+        function reset()
+        {
+            localStorage.endTime = +new Date + interval;
+        }
+        
+        if(!localStorage.endTime)
+        {
+            reset();
+        }
+        
+        setInterval(function()
+        {
+            var remaining = localStorage.endTime - new Date;
+            if( remaining >= 0 )
+            {
+                $('#timer').text( secondsToHms(remaining/1000) );
+            } else
+            {
+                reset();
+            }
+        }, 100);
+    });
 });

@@ -25,34 +25,14 @@
 }
 
 .vce-exam-hot {
-    .table-header-bg {
-        background: #FFD6AE;
-    }
-    
     .table td {
         padding: 0.75rem;
-        border-color: #FFF5EB;
-    }
-
-    tbody tr:hover {
-        border-left: 4px solid var(--color-primary) !important;
     }
 
     thead {
         th {
             font-weight: bold;
         }
-        border-left: 4px solid #FFD6AE;
-    }
-
-    .table-striped tbody tr {
-        background-color: white;
-        border-left: 4px solid white;
-    }
-
-    .table-striped tbody tr:nth-of-type(odd) {
-        background-color: #FFF5EB;
-        border-left: 4px solid #FFF5EB;
     }
 }
 
