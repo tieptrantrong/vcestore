@@ -6,7 +6,7 @@ use Modules\Media\Entities\File;
 use Illuminate\Support\Facades\Storage;
 use Modules\Admin\Traits\HasCrudActions;
 use Modules\Media\Http\Requests\UploadMediaRequest;
-
+use Illuminate\Support\Facades\Log;
 class MediaController
 {
     use HasCrudActions;
@@ -46,7 +46,8 @@ class MediaController
         $path = '';
         $disk = '';
         if ($file->getClientOriginalExtension() === 'vce') {
-            $path = Storage::disk('private_storage')->putFileAs('vces', $file, $fileName);
+            $folder = $request->product != 'null' && $request->product ? 'vces/' . $request->product : 'vces';
+            $path = Storage::disk('private_storage')->putFileAs($folder, $file, $fileName);
             $disk = 'private_storage';
         } else {
             $path = Storage::putFileAs('media', $file, $fileName);

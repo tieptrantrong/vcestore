@@ -1,6 +1,7 @@
 @push('globals')
     <script>
         FleetCart.maxFileSize = {{ (int) ini_get('upload_max_filesize') }}
+        console.log(FleetCart);
     </script>
 @endpush
 

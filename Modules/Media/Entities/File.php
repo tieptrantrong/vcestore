@@ -115,10 +115,17 @@ class File extends Model
      */
     public function table($request)
     {
-        $query = $this->newQuery()
+        if($request->product !== 'null' && $request->product) {
+            $query = $this->newQuery()
+            ->when(! is_null($request->type) && $request->type !== 'null', function ($query) use ($request) {
+                $query->where('mime', 'LIKE', "{$request->type}/%")->where('path', 'LIKE', "vces/{$request->product}/%");
+            });
+        } else {
+            $query = $this->newQuery()
             ->when(! is_null($request->type) && $request->type !== 'null', function ($query) use ($request) {
                 $query->where('mime', 'LIKE', "{$request->type}/%");
             });
+        }
 
         return new MediaTable($query);
     }

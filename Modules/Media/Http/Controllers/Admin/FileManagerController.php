@@ -14,7 +14,8 @@ class FileManagerController
     public function index()
     {
         $type = request('type');
+        $product = request('product');
 
-        return view('media::admin.file_manager.index', compact('type'));
+        return view('media::admin.file_manager.index', compact('type'), compact('product'));
     }
 }

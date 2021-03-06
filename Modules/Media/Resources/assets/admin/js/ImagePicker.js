@@ -29,7 +29,7 @@ export default class {
         let inputName = e.currentTarget.dataset.inputName;
         let multiple = e.currentTarget.hasAttribute('data-multiple');
 
-        let picker = new MediaPicker({ type: 'vce', multiple });
+        let picker = new MediaPicker({ type: 'vce', product: FleetCart.vce_product_id, multiple });
 
         picker.on('select', (file) => {
             this.addFile(inputName, file, multiple, e.currentTarget);

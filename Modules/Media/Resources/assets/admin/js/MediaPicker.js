@@ -4,6 +4,7 @@ export default class {
     constructor(options) {
         this.options = _.merge({
             type: null,
+            product: null,
             multiple: false,
             route: 'admin.file_manager.index',
             title: trans('media::media.file_manager.title'),
@@ -24,6 +25,7 @@ export default class {
     getFrame() {
         let src = route(this.options.route, {
             type: this.options.type,
+            product: this.options.product,
             multiple: this.options.multiple,
         });
 

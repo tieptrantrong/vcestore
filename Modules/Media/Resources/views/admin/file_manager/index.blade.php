@@ -41,7 +41,7 @@
         DataTable.setRoutes('.file-manager .table', {
             index: {
                 name: 'admin.media.index',
-                params: { type: '{{ $type }}' }
+                params: { type: '{{ $type }}', product: '{{ $product }}' }
             },
             destroy: 'admin.media.destroy',
         });

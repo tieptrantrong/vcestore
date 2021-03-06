@@ -23,6 +23,7 @@
 
 @push('globals')
     <script>
+        FleetCart.vce_product_id = {{ $product->id }};
         FleetCart.data['product.privateUrlProducts'] = {!! old_json('options', $product->privateUrlProducts) !!};
         FleetCart.errors['product.privateUrlProducts'] = @json($errors->get('options.*'), JSON_FORCE_OBJECT);
     </script>

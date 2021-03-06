@@ -3,11 +3,10 @@ import Dropzone from 'dropzone';
 export default class {
     constructor() {
         Dropzone.autoDiscover = false;
-
         this.dropzone = new Dropzone('.dropzone', {
             url: route('admin.media.store'),
             autoProcessQueue: true,
-            maxFilesize: FleetCart.maxFileSize,
+            maxFilesize: FleetCart.maxFileSize
         });
 
         this.dropzone.on('sending', this.sending);
@@ -15,9 +14,11 @@ export default class {
         this.dropzone.on('error', this.error);
     }
 
-    sending(file, xhr) {
+    sending(file, xhr, formData) {
+        const urlParams = new URLSearchParams(window.location.search);
+        const product = urlParams.get('product');
+        formData.append('product', product);
         xhr.timeout = 3600000;
-
         $('.alert-danger').remove();
     }
 
