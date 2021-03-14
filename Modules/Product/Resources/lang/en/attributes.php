@@ -6,6 +6,7 @@ return [
     'title' => 'Title',
     'description' => 'Description',
     'short_description' => 'Short Description',
+    'overview' => 'Overview',
     'brand_id' => 'Brand',
     'categories' => 'Categories',
     'tax_class_id' => 'Tax Class',

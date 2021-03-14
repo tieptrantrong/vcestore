@@ -2,6 +2,7 @@
     <div class="flexWrap">
         <svg width="50" height="50"><use xlink:href="/static/img/sprite.svg#guarantee"></use></svg>
         <div class="satisfactionHeaders">
+            <svg width="50" height="50"><use xlink:href="/static/img/sprite.svg#guarantee"></use></svg>
             <div class="title">Satisfaction Guaranteed</div>
             <div><span>98.4%</span>Pass Rate</div>
         </div>

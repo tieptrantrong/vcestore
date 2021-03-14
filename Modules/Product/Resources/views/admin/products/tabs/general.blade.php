@@ -1,6 +1,7 @@
 {{ Form::text('name', trans('product::attributes.name'), $errors, $product, ['labelCol' => 2, 'required' => true]) }}
 {{ Form::text('title', trans('product::attributes.title'), $errors, $product, ['labelCol' => 2, 'required' => false]) }}
-{{ Form::wysiwyg('description', trans('product::attributes.description'), $errors, $product, ['labelCol' => 2, 'required' => true]) }}
+{{ Form::wysiwyg('short_description', trans('product::attributes.overview'), $errors, $product, ['labelCol' => 2, 'required' => false]) }}
+{{ Form::wysiwyg('description', trans('product::attributes.description'), $errors, $product, ['labelCol' => 2, 'required' => false]) }}
 
 <div class="row">
     <div class="col-md-8">

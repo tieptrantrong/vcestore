@@ -2,7 +2,7 @@
     <div class="list-products">
         <ul class="vendorList">
             <li v-for="product in products.data" v-if="isCertificate(product)" :key="product.id">
-                <a :href="productUrl(product.slug)">{{product.name}}</a> - {{product.title}} - <span class="updated-date">Last day to test: {{formatDate(product.updated_at)}}</span>
+                <a :href="productUrl(product.slug)">{{product.name}}</a> - {{product.title}} - <span class="updated-date">Last updated: {{formatDate(product.updated_at)}}</span>
             </li>
         </ul>
     </div>

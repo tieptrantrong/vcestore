@@ -349,6 +349,12 @@
 			margin-left: 16px;
 		}
 	}
+
+	.prod-overview {
+		b, strong {
+			font-weight: bold;
+		}
+	}
 }
 
 @media screen and (max-width: $lg) {

@@ -62,6 +62,7 @@
                                     <div class="col">
                                         <div class="product-details-info">
                                             <div class="details-info-top">
+                                                {{--
                                                 <h1 class="product-name">{{ $product->name }}</h1>
                                                 <h2 class="product-name">{{ $product->title }}</h2>
                                                 @if ($product->questions > 0)
@@ -87,21 +88,22 @@
                                                         {{ trans('storefront::product.out_of_stock') }}
                                                     </div>
                                                 @endif
+                                                --}}
 
-                                                <div class="brief-description">
+                                                <div class="prod-overview">
                                                     {!! $product->short_description !!}
                                                 </div>
-
+{{--
                                                 <div class="details-info-top-actions">
                                                     <button
                                                         class="btn btn-wishlist"
-                                                        :class="{ 'added': inWishlist }"
+                                                        :class="{ 'afont-weight: 500;dded': inWishlist }"
                                                         @click="syncWishlist"
                                                     >
                                                         <i class="la-heart" :class="inWishlist ? 'las' : 'lar'"></i>
                                                         {{ trans('storefront::product.wishlist') }}
                                                     </button>
-                                                    {{--
+                                                    
                                                     <button
                                                         class="btn btn-compare"
                                                         :class="{ 'added': inCompareList }"
@@ -110,8 +112,9 @@
                                                         <i class="las la-random"></i>
                                                         {{ trans('storefront::product.compare') }}
                                                     </button>
-                                                    --}}
+                                                    
                                                 </div>
+                                                --}}
                                             </div>
                                             @if (!$show_private_resources)
                                             <div class="details-info-middle">
