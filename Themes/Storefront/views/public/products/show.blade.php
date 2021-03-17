@@ -173,6 +173,7 @@
                                             @endif
 
                                             <div class="details-info-bottom">
+                                                {{--
                                                 <ul class="list-inline additional-info">
                                                     @unless (is_null($product->sku))
                                                         <li class="sku">
@@ -200,7 +201,7 @@
                                                         </li>
                                                     @endif
                                                 </ul>
-
+--}}
                                                 @include('public.products.show.social_share')
                                             </div>
                                         </div>
