@@ -56,7 +56,7 @@
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="product-base-image">
-                                            <img src="{{ $product->base_image->path ?? '/img/qa-noEmpty.png'}}">
+                                            <img src="{{ $product->base_image->path ?? '/img/qa-noEmpty.jpg'}}">
                                         </div>
                                     </div>
                                     <div class="col">
