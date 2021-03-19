@@ -8,6 +8,7 @@
 	p {
 		line-height: 23px;
 		color: $color-gray;
+		margin-bottom: 25px;
 	}
 
 	ul, ol {
@@ -21,7 +22,7 @@
 	}
 
 	b, strong, em {
-		font-weight: 500;
+		font-weight: bold;
 	}
 
 	a {
@@ -51,6 +52,12 @@
 
     td {
         vertical-align: top;
+    }
+
+    margin-top: 20px;
+
+    ol li, ul li {
+        margin-bottom: 10px;
     }
 }
 
