@@ -13,7 +13,7 @@
 
                     <a href="{{ route('home') }}" class="header-logo">
                         @if (is_null($logo))
-                            <h3>{{ setting('store_name') }}</h3>
+                            <img src="{{ '/img/logo.svg' }}" alt="logo">
                         @else
                             <img src="{{ $logo }}" alt="logo">
                         @endif

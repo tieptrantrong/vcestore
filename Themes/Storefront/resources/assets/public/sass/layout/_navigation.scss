@@ -1,6 +1,5 @@
 .navigation-wrap {
-    background: white;
-    border-top: 0.5px solid var(--color-border);
+    background: var(--color-primary);
 }
 
 .navigation-inner {
@@ -260,7 +259,6 @@
         &:hover {
             > .nav-link {
                 text-decoration: underline;
-                color: var(--color-primary);
 
                 > i {
                     right: 12px;
@@ -282,19 +280,10 @@
             line-height: 40px;
             position: relative;
             margin-bottom: -1px;
-            padding: 12px 14px 12px 14px;
-            color: #515151;
+            padding: 12px 28px 12px 0px;
+            color: white;
             white-space: nowrap;
             transition: none;
-
-            &:after {
-                content: attr(data-text);
-                font-weight: 500;
-                display: block;
-                height: 0;
-                overflow: hidden;
-                visibility: hidden;
-            }
 
             > i {
                 position: absolute;
@@ -308,21 +297,7 @@
 
     > .active {
         .nav-link {
-            color: var(--color-primary);
-            &:after {
-                width: 0;
-                height: 0;
-                position: absolute;
-                content:"";
-                display:block;
-                border-left: 6px solid transparent;
-                border-right: 6px solid transparent;
-                border-bottom: 9px solid var(--color-primary);
-                left: 50%;
-                margin-left: -6px;
-                margin-top: 3px;
-                visibility: visible;
-            }
+            text-decoration: underline;
         }
     }
 
@@ -365,18 +340,17 @@
 }
 
 .navbar-expand-sm {
-    margin-left: 14px;
+    margin-left: 0px;
 }
 
-.navigation-label {
+.all-vendors-label {
     font-size: 16px;
     text-transform: uppercase;
     font-weight: bold;
-    border-right: 1px solid var(--color-border);
-    padding-right: 28px;
+    padding-right: 0px;
     padding-top: 10px;
     padding-bottom: 10px;
-    color: var(--color-primary);
+    color: white;
 }
 
 .rtl {
