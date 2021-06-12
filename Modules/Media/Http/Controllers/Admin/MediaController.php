@@ -49,6 +49,10 @@ class MediaController
             $folder = $request->product != 'null' && $request->product ? 'vces/' . $request->product : 'vces';
             $path = Storage::disk('private_storage')->putFileAs($folder, $file, $fileName);
             $disk = 'private_storage';
+        } else if ($file->getClientOriginalExtension() === 'pdf') {
+            $folder = $request->product != 'null' && $request->product ? 'pdf/' . $request->product : 'pdf';
+            $path = Storage::disk('private_storage')->putFileAs($folder, $file, $fileName);
+            $disk = 'private_storage';
         } else {
             $path = Storage::putFileAs('media', $file, $fileName);
             $disk = config('filesystems.default');

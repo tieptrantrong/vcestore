@@ -118,7 +118,7 @@ class File extends Model
         if($request->product !== 'null' && $request->product) {
             $query = $this->newQuery()
             ->when(! is_null($request->type) && $request->type !== 'null', function ($query) use ($request) {
-                $query->where('mime', 'LIKE', "{$request->type}/%")->where('path', 'LIKE', "vces/{$request->product}/%");
+                $query->where('path', 'LIKE', "%/{$request->product}/%");
             });
         } else {
             $query = $this->newQuery()

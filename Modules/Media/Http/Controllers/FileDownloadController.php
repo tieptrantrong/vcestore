@@ -28,7 +28,7 @@ class FileDownloadController
             return abort(404);
         }
         if ($product->hasPrivateResource($resource_id)) {
-            if (Auth::user()->hasProduct($product_id) && $file->extension == 'vce') {
+            if (Auth::user()->hasProduct($product_id) && ($file->extension == 'vce' || $file->extension == 'pdf')) {
                 $filePath = $file->getFilePath();
                 if ($filePath) {
                     return Response::download($filePath, $file->filename);
@@ -36,7 +36,7 @@ class FileDownloadController
             }
         }
         else if ($product->hasPublicResource($resource_id)) {
-            if ($file->extension == 'vce') {
+            if ($file->extension == 'vce' || $file->extension == 'pdf') {
                 $filePath = $file->getFilePath();
                 if ($filePath) {
                     return Response::download($filePath, $file->filename);
