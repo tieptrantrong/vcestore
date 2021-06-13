@@ -15,6 +15,15 @@
                 <td class="center-align-product"><a href="{{ route('download.file.vce', ['product_id'=>$product->id,'resource_id'=>$private_resource->id]) }}">Download</a></td>
             </tr>
             @endforeach
+            @foreach ($certificates as $certificate)
+                @foreach ($certificate->private_resources as $private_resource)
+                <tr>
+                    <td class="center-align-product"><a href="{{ route('download.file.vce', ['product_id'=>$product->id,'resource_id'=>$private_resource->id]) }}">{{$private_resource->filename}}</a></td>
+                    <td class="center-align-product">{{convertToReadableSize($private_resource->size)}}</td>
+                    <td class="center-align-product"><a href="{{ route('download.file.vce', ['product_id'=>$product->id,'resource_id'=>$private_resource->id]) }}">Download</a></td>
+                </tr>
+                @endforeach
+            @endforeach
         </tbody>
     </table>
 </div>

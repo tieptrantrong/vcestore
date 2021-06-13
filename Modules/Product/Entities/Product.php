@@ -367,6 +367,12 @@ class Product extends Model
 
     public function hasPublicResource($id)
     {
+        $certificates = $this->certificates()->get();
+        foreach ($certificates as $certificate) {
+            if ($certificate->hasPublicResource($id)) {
+                return true;
+            }
+        }
         return $this->files
         ->where('pivot.zone', 'public_resources')
         ->where('pivot.file_id', $id)->count() > 0;
@@ -374,6 +380,12 @@ class Product extends Model
 
     public function hasPrivateResource($id)
     {
+        $certificates = $this->certificates()->get();
+        foreach ($certificates as $certificate) {
+            if ($certificate->hasPrivateResource($id)) {
+                return true;
+            }
+        }
         return $this->files
         ->where('pivot.zone', 'private_resources')
         ->where('pivot.file_id', $id)->count() > 0;

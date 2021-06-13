@@ -255,6 +255,9 @@
                                     </ul>
 
                                     <div class="tab-content">
+                                        <?php
+                                        $certificates = $product->certificates()->get();
+                                        ?>
                                         @if ($show_private_resources)
                                         @include('public.products.show.tab_private_resources')
                                         @endif

@@ -133,8 +133,8 @@ class User extends EloquentUser implements AuthenticatableContract
         $orders = $this->orders()->get();
         foreach ($orders as $order) {
             if ($order->status == 'completed') {
-                $products = $order->products()->get()->pluck('product_id')->toArray();
-                if (in_array($productId, $products)) {
+                $productIds = $order->products()->get()->pluck('product_id')->toArray();
+                if (in_array($productId, $productIds)) {
                     return true;
                 }
             }
