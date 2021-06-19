@@ -14,7 +14,8 @@ RUN mkdir /opt/vcetop
 
 # Copy existing application directory contents
 COPY . /opt/vcetop
-
+RUN mkdir /opt/vcetop/storage/framework/sessions
+RUN mkdir /opt/vcetop/storage/framework/views
 WORKDIR /opt/vcetop
 # Expose port 8080 and start php-fpm server
 EXPOSE 8080
