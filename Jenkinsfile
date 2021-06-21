@@ -11,12 +11,12 @@ node ("web-server"){
             dockertransactionImage = docker.build(image + ":$BUILD_NUMBER", "-f Dockerfile .")
         }
 		
-		/*stage("Run Sql update"){
+		stage("Run Sql update"){
             sh "docker cp sql-script/21062021.sql mysql1:/opt/script/last-update.sql"
             sh "docker cp sql-script/run.sh mysql1:/opt/script"
-            sh "docker exec -it mysql1 /bin/bash chmod +x /opt/script/run.sh"
-            sh "docker exec -it mysql1 /bin/bash /opt/script/run.sh"
-        }*/
+            sh "docker exec mysql1 /bin/bash chmod +x /opt/script/run.sh"
+            sh "docker exec mysql1 /bin/bash /opt/script/run.sh"
+        }
 		
 		stage('Delete Docker Container if exists') {
             // stop and remove logs container
