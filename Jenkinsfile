@@ -13,7 +13,7 @@ node ("web-server"){
 		
 		stage("Run Sql update"){
             
-			withCredentials([usernamePassword(credentialsId: '	mysql-database', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+			withCredentials([usernamePassword(credentialsId: 'mysql-database', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                 mysqlUser = $USERNAME
                 mysqlPw = $PASSWORD
                 sh "docker exec -it $containerMysql /bin/bash mysql -u $USERNAME -p vcepro < /opt/script/last-update.sql"
