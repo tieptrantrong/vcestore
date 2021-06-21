@@ -13,12 +13,9 @@ node ("web-server"){
 		
 		stage("Run Sql update"){
             sh "docker cp sql-script/21062021.sql mysql1:/opt/script/last-update.sql"
-			withCredentials([usernamePassword(credentialsId: 'mysql-database', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                sh "docker exec -tty $containerMysql /bin/bash"
-                sh "mysql -u $USERNAME -p vcepro < /opt/script/last-update.sql"
-                sh "$PASSWORD"
-            }
-            sh "exit;"
+            sh "docker cp sql-script/run.sh mysql1:/opt/script"
+            sh "docker exec -it mysql1 /bin/bash chmod +x /opt/script/run.sh"
+            sh "docker exec -it mysql1 /bin/bash /opt/script/run.sh"
         }
 		
 		stage('Delete Docker Container if exists') {
