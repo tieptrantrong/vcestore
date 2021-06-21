@@ -16,10 +16,10 @@ node ("web-server"){
 			withCredentials([usernamePassword(credentialsId: '	mysql-database', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                 mysqlUser = $USERNAME
                 mysqlPw = $PASSWORD
+                sh "docker exec -it $containerMysql /bin/bash mysql -u $USERNAME -p vcepro < /opt/script/last-update.sql"
+                sh "$PASSWORD"
             }
-            sh "docker exec -it $containerMysql /bin/bash mysql -u $mysqlUser -p vcepro < /opt/script/last-update.sql"
-			sh "$mysqlPw"
-			sh "exit;"
+            sh "exit;"
         }
 		
 		stage('Delete Docker Container if exists') {
