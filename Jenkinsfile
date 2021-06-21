@@ -1,10 +1,22 @@
 def image='vcetop-git'
 def container='vcetop-git'
+def containerMysql='mysql1'
+def mysqlpw='mysql1'
 node ("web-server"){
     try {
         stage("Check out git And Build Image"){
             checkout scm
             dockertransactionImage = docker.build(image + ":$BUILD_NUMBER", "-f Dockerfile .")
+        }
+		
+		stage("Run Sql update"){
+            
+			withCredentials([usernamePassword(credentialsId: '	mysql-database', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                sh "docker exec -it $containerMysql /bin/bash "
+				sh "mysql -u $USERNAME -p vcepro < /opt/script/last-update.sql"
+				sh "$PASSWORD"
+            }
+			sh "exit;"
         }
 		
 		stage('Delete Docker Container if exists') {
@@ -33,4 +45,3 @@ node ("web-server"){
 
     }
 }
-
