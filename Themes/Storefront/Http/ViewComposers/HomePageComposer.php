@@ -34,6 +34,8 @@ class HomePageComposer
             'threeColumnBanners' => $this->threeColumnBanners(),
             'tabProductsTwo' => $this->tabProductsTwo(),
             'oneColumnBanner' => $this->oneColumnBanner(),
+            'topCertifications' => $this->topCertifications(),
+            'topPracticeExams' => $this->topPracticeExams(),
         ]);
     }
 
@@ -91,6 +93,24 @@ class HomePageComposer
                 return setting("storefront_product_tabs_1_section_tab_{$number}_title");
             }
         })->filter();
+    }
+
+    private function topCertifications()
+    {
+        if (! setting('storefront_top_certifications_section_enabled')) {
+            return;
+        }
+
+        return setting("storefront_top_certifications_section_tab_title");
+    }
+
+    private function topPracticeExams()
+    {
+        if (! setting('storefront_top_practice_exams_section_enabled')) {
+            return;
+        }
+
+        return setting("storefront_top_practice_exams_section_tab_title");
     }
 
     private function topBrands()

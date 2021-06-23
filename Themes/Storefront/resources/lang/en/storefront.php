@@ -31,6 +31,8 @@ return [
         'enable_three_column_banners_section' => 'Enable three column banners section',
         'enable_product_tabs_two_section' => 'Enable product tabs two section',
         'enable_one_column_banner_section' => 'Enable One column banner section',
+        'enable_top_certifications_section' => 'Enable top certifications section',
+		'enable_top_practice_exams_section' => 'Enable practice exams section',
         'product_types' => [
             'category_products' => 'Category Products',
             'latest_products' => 'Latest Products',
@@ -52,6 +54,8 @@ return [
         'vertical_products_1' => 'Vertical Products 1',
         'vertical_products_2' => 'Vertical Products 2',
         'vertical_products_3' => 'Vertical Products 3',
+        'top_certifications' => 'Top Certifications',
+		'top_practice_exams' => 'Top Practice Exams',
     ],
     'tabs' => [
         'group' => [
@@ -77,5 +81,7 @@ return [
         'three_column_banners' => 'Three Column Banners',
         'product_tabs_two' => 'Product Tabs Two',
         'one_column_banner' => 'One Column Banner',
+        'top_certifications' => 'Top Certifications',
+		'top_practice_exams' => 'Top Practice Exams',
     ],
 ];

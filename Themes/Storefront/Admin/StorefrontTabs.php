@@ -36,6 +36,8 @@ class StorefrontTabs extends Tabs
             ->add($this->socialLinks());
 
         $this->group('home_page_sections', trans('storefront::storefront.tabs.group.home_page_sections'))
+            ->add($this->topCertifications())
+            ->add($this->topPracticeExams())
             ->add($this->sliderBanners())
             ->add($this->threeColumnFullWidthBanners())
             ->add($this->featuredCategories())
@@ -211,6 +213,26 @@ class StorefrontTabs extends Tabs
                 'categoryFourProducts' => $this->getProductListFromSetting('storefront_featured_categories_section_category_4_products'),
                 'categoryFiveProducts' => $this->getProductListFromSetting('storefront_featured_categories_section_category_5_products'),
                 'categorySixProducts' => $this->getProductListFromSetting('storefront_featured_categories_section_category_6_products'),
+            ]);
+        });
+    }
+
+    private function topCertifications()
+    {
+        return tap(new Tab('top_certifications', trans('storefront::storefront.tabs.top_certifications')), function (Tab $tab) {
+            $tab->weight(40);
+            $tab->view('admin.storefront.tabs.top_certifications', [
+                'topCertifications' => $this->getProductListFromSetting('storefront_product_top_certifications_products')
+            ]);
+        });
+    }
+
+    private function topPracticeExams()
+    {
+        return tap(new Tab('top_practice_exams', trans('storefront::storefront.tabs.top_practice_exams')), function (Tab $tab) {
+            $tab->weight(40);
+            $tab->view('admin.storefront.tabs.top_practice_exams', [
+                'topPracticeExams' => $this->getProductListFromSetting('storefront_product_top_practice_exams_products')
             ]);
         });
     }
