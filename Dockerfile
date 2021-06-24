@@ -9,13 +9,14 @@ RUN yum install -y php php-common php-fpm
 RUN yum install -y php-mysql php-pecl-memcache php-pecl-memcached php-gd php-mbstring php-mcrypt php-xml php-pecl-apc php-cli php-pear php-pdo
 RUN yum install php-cli php-zip wget unzip -y
 RUN yum install -y php-intl 
+RUN yum install vim-enhanced -y
 #
 RUN mkdir /var/www/vcestore
 
 # Copy existing application directory contents
 COPY . /var/www/vcestore
-RUN mkdir /var/www/vcestore/storage/framework/sessions
-RUN mkdir //var/www/vcestore/storage/framework/views
+RUN chown -R 777 /var/www/vcestore/storage/framework/sessions
+RUN chown -R 777 /var/www/vcestore/storage/framework/views
 WORKDIR /var/www/vcestore
 # Expose port 8080 and start php-fpm server
 EXPOSE 8080
