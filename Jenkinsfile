@@ -12,10 +12,16 @@ node ("web-server"){
         }
 		
 		stage("Run Sql update"){
-            sh "docker cp sql-script/last-update.sql mysql1:/opt/script/last-update.sql"
-            sh "docker cp sql-script/run.sh mysql1:/opt/script"
-            sh "docker exec mysql1 /bin/bash chmod +x /opt/script/run.sh"
-            sh "docker exec mysql1 /bin/bash /opt/script/run.sh"
+            try{
+                sh "docker cp sql-script/last-update.sql mysql1:/opt/script/last-update.sql"
+                sh "docker cp sql-script/run.sh mysql1:/opt/script"
+                sh "docker exec mysql1 /bin/bash chmod +x /opt/script/run.sh"
+                sh "docker exec mysql1 /bin/bash /opt/script/run.sh"
+            } catch(Exception e){
+                echo "Run Sql failure"
+            } finally {
+
+            }
         }
 		
 		stage('Delete Docker Container if exists') {
