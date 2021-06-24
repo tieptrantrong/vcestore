@@ -15,6 +15,7 @@ RUN mkdir /var/www/vcestore
 
 # Copy existing application directory contents
 COPY . /var/www/vcestore
+RUN chown -R 777 /var/www/vcestore/storage/framework/cache
 RUN chown -R 777 /var/www/vcestore/storage/framework/sessions
 RUN chown -R 777 /var/www/vcestore/storage/framework/views
 WORKDIR /var/www/vcestore
