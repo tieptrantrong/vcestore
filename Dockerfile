@@ -10,13 +10,13 @@ RUN yum install -y php-mysql php-pecl-memcache php-pecl-memcached php-gd php-mbs
 RUN yum install php-cli php-zip wget unzip -y
 RUN yum install -y php-intl 
 #
-RUN mkdir /opt/vcetop
+RUN mkdir /var/www/vcestore
 
 # Copy existing application directory contents
-COPY . /opt/vcetop
-RUN mkdir /opt/vcetop/storage/framework/sessions
-RUN mkdir /opt/vcetop/storage/framework/views
-WORKDIR /opt/vcetop
+COPY . /var/www/vcestore
+RUN mkdir /var/www/vcestore/storage/framework/sessions
+RUN mkdir //var/www/vcestore/storage/framework/views
+WORKDIR /var/www/vcestore
 # Expose port 8080 and start php-fpm server
 EXPOSE 8080
 CMD php artisan serve --host=0.0.0.0 --port=8080
