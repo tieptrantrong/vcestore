@@ -21,45 +21,42 @@
     @if (setting('storefront_features_section_enabled'))
         <home-features :features="{{ json_encode($features) }}"></home-features>
     @endif
+    @if (setting('storefront_top_certifications_section_enabled'))
+        <home-top-certifications :data="{{ json_encode($topCertifications) }}"></home-top-certifications>
+    @endif
 
-    <section class="vce-cer-hot session-dark">
-        <certification-category
-        initial-category-slug="top-certifications"
-        inline-template
-        >
-            <div class="container">
-                <h1 class="home-title">TOP CERTIFICATIONS</h1>
-                <div class="grid-view-products">
-                    <home-product-card-grid-view v-for="product in products.data" :key="product.id" :product="product"></home-product-card-grid-view>
-                </div>       
+    <div class="container v-practice-exam">
+        <div class="row">
+            <div class="col products-left">
+                <div class="custom-page-content clearfix">
+                
+                    <section class="vce-exam-hot">
+                        <certification-category
+                        initial-category-slug="top-certifications"
+                        inline-template
+                        >
+                            @if (setting('storefront_top_practice_exams_section_enabled'))
+                                <home-product-table-view :title="{{ json_encode($topPracticeExams) }}"></home-product-table-view>
+                            @endif
+                        
+                        </certification-category>
+                    </section>
+                </div>
             </div>
-        
-        </certification-category>
-    </section>
+            <div class="right-sidebar col-lg-5 col-xl-5">
+                @include('public.layout.right_sidebar')
+            </div>
+        </div>
+    </div>
 
-    <section class="vce-exam-hot">
-        <certification-category
-        initial-category-slug="top-certifications"
-        inline-template
-        >
-            <div class="container">
-                <h1 class="home-title">TOP 50 PRACTICE EXAMS</h1>
-                <home-product-table-view :products="products" :products_l="productsL" :products_r="productsR" :is_certificate="true"></home-product-table-view>
-            </div>
-        
-        </certification-category>
-    </section>
+    
 
     @if (setting('storefront_featured_categories_section_enabled'))
-        <featured-categories-table :data="{{ json_encode($featuredCategories) }}"></featured-categories-table>
+        <featured-categories :data="{{ json_encode($featuredCategories) }}"></featured-categories>
     @endif
 
     @if (setting('storefront_three_column_full_width_banners_enabled'))
         <banner-three-column-full-width :data="{{ json_encode($threeColumnFullWidthBanners) }}"></banner-three-column-full-width>
-    @endif
-
-    @if (setting('storefront_product_tabs_1_section_enabled'))
-        <product-tabs-one :data="{{ json_encode($productTabsOne) }}"></product-tabs-one>
     @endif
 
     @if (setting('storefront_top_brands_section_enabled') && $topBrands->isNotEmpty())

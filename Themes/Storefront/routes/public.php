@@ -8,6 +8,8 @@ Route::get('storefront/tab-products/sections/{sectionNumber}/tabs/{tabNumber}', 
 Route::get('storefront/product-grid/tabs/{tabNumber}', 'ProductGridController@index')->name('storefront.product_grid.index');
 Route::get('storefront/flash-sale-products', 'FlashSaleProductController@index')->name('storefront.flash_sale_products.index');
 Route::get('storefront/vertical-products/{columnNumber}', 'VerticalProductController@index')->name('storefront.vertical_products.index');
+Route::get('storefront/top-products', 'TopProductController@index')->name('storefront.top_products.index');
+Route::get('storefront/top-practice-exams', 'TopProductController@topPracticeExams')->name('storefront.top_practice_exams.index');
 
 Route::post('storefront/newsletter-popup', 'NewsletterPopup@store')->name('storefront.newsletter_popup.store');
 Route::delete('storefront/newsletter-popup', 'NewsletterPopup@destroy')->name('storefront.newsletter_popup.destroy');

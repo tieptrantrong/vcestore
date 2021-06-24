@@ -638,7 +638,6 @@ class Product extends Model
         return array_except($this->toArray(), [
             'description',
             'short_description',
-            'title',
             'translations',
             'categories',
             'certificates',

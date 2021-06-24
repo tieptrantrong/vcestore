@@ -1,40 +1,25 @@
 <div class="satisfaction">
     <div class="flexWrap">
-        <svg width="50" height="50"><use xlink:href="/static/img/sprite.svg#guarantee"></use></svg>
         <div class="satisfactionHeaders">
-            <svg width="50" height="50"><use xlink:href="/static/img/sprite.svg#guarantee"></use></svg>
-            <div class="title">Satisfaction Guaranteed</div>
-            <div><span>98.4%</span>Pass Rate</div>
+            <div class="title">HOW TO OPEN VCE FILES</div>
         </div>
     </div>
-    <div>Our team works hard to provide students with high exam dumps and compelling learning experiences. We're confident of the quality level of the products we offer and provide no hassle satisfaction guarantee.</div>
+    <div>Use VCE Exam Simulator to open VCE files</div>
+    <div style="margin-left: 50px; margin-right: 50px; margin-top: 25px; margin-bottom: 25px; text-align:center;">
+        <img src='/img/avanset-vce-exam-simulator-icon.png'>
+    </div>
+    <div style="text-align:center;">
+        <img src='/img/os-supported-icons.png'>
+    </div>
 </div>
 
-<div class="whyChoose">
-    <p class="h4">Why choose Exam-Labs?</p>
-    <div class="subTitle">Over <span>362,161</span><br> Satisfied Customers Since 2015</div>
-    <ul class="checkList">
-        <li><span>100%</span> Real Exam Questions</li>
-        <li>Accurate &amp; Updated <span>Answers</span></li>
-        <li>Regular <span>Free</span> Updates</li>
-        <li><span>24/7</span> Customer Support</li>
-        <li><span>98.4%</span> Pass Rate</li>
-        <li><span>Instant</span> Download</li>
+<div class="tutorials-panel">
+    <p class="h4">TUTORIALS</p>
+    <ul class="checkList" style="margin-top: 25px">
+        <li><a href="https://www.w3schools.com">How to open VCE Files?</a></li>
+        <li><a href="https://www.w3schools.com">How to convert PDF to VCE?</a></li>
+        <li><a href="https://www.w3schools.com">How to convert VCE to PDF?</a></li>
     </ul>
-</div>
-
-<div class="secureShopping">
-    <p class="h4">Secure Shopping Experience</p>
-    <div class="cardsWrap"><img src="/static/img/cards.png" alt="We accept VISA, MasterCard"></div>
-    <p>We provide secure shopping experience backed by High Security SSL from McAfee, so you are guaranteed that any your purchase on Exam-Labs is 100% safe.</p>
-    <p class="customMargin">You will get access to your products immediately after we receive your payment.</p>
-    <div class="mcafee">
-        <img src="/static/img/mcafee.png" alt="McAfee" width="94" height="56">
-        <div class="currentDate">
-            <div class="currentDay">6-</div>
-            <div class="currentMonth">Feb</div>
-        </div>
-    </div>
 </div>
 
 <div class="needHelpWrap">
