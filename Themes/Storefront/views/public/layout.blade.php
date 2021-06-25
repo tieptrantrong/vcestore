@@ -23,7 +23,7 @@
             <link rel="stylesheet" href="{{ v(Theme::url('public/css/app.css')) }}">
         @endif
 
-        <link rel="shortcut icon" href="{{ $favicon }}" type="image/x-icon">
+        <link rel="shortcut icon" href="<?php echo e('/img/favicon.png'); ?>" type="image/x-icon">
 
         @stack('styles')
 
