@@ -5,8 +5,8 @@
         </div>
     </div>
     <div>Use VCE Exam Simulator to open VCE files</div>
-    <div style="margin-left: 50px; margin-right: 50px; margin-top: 25px; margin-bottom: 25px; text-align:center;">
-        <img src='/img/avanset-vce-exam-simulator-icon.png'>
+    <div style="margin-top: 25px; margin-bottom: 25px; text-align:center;">
+        <img style="max-width: 100%;" src='/img/avanset-vce-exam-simulator-icon.png'>
     </div>
     <div style="text-align:center;">
         <img src='/img/os-supported-icons.png'>

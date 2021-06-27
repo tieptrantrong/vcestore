@@ -14,7 +14,7 @@ class CategoryController
     public function index()
     {
         return view('public.categories.all', [
-            'categories' => Category::all()->nest(),
+            'categories' => Category::orderBy("slug")->get(),
         ]);
     }
 }
