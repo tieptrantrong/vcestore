@@ -1,7 +1,10 @@
-<div class="col-lg-3 col-md-6 col-9 category-item">
+<div class=".col-xl-3 col-lg-4 col-md-6 col-9 category-item">
     <a href="{{ $category->url() }}" class="brand-image">
+        @if ($category->logo->path != '')
         <div class="imgWrap"><img src="{{$category->logo->path}}" alt="brand image"></div>
-        <div class="title">{{$category->name}}</div>
-        <div class="name">{{$category->products()->where('is_certificate', '=', false)->count()}} exams</div>                        
+        @else
+        <div class="title category-title">{{$category->name}}</div>
+        @endif
+        <div class="category-name">{{$category->products()->where('is_certificate', '=', false)->count()}} exams</div>                        
     </a>
 </div>

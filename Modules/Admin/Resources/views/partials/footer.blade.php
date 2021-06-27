@@ -27,5 +27,5 @@
         <i class="fa fa-keyboard-o"></i>
     </a>&nbsp;
 
-    <span>Copyright &copy; {{ date('Y')}} <a href="https://envaysoft.com/fleetcart" target="_blank">VcePro</a></span>
+    <span>Copyright &copy; {{ date('Y')}} <a href="https://envaysoft.com/fleetcart" target="_blank">VceTop</a></span>
 </footer>

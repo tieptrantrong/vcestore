@@ -244,11 +244,14 @@
         }
     }
 }
+.nav-full-width {
+    width: 100%;
+}
 
 .horizontal-megamenu {
     position: relative;
     flex-wrap: wrap;
-
+    justify-content: space-between;
     &.mega-menu {
         > .fluid-menu {
             position: relative;
@@ -280,7 +283,6 @@
             line-height: 40px;
             position: relative;
             margin-bottom: -1px;
-            padding: 12px 28px 12px 0px;
             color: white;
             white-space: nowrap;
             transition: none;
@@ -341,6 +343,11 @@
 
 .navbar-expand-sm {
     margin-left: 0px;
+}
+
+.navbar-expand-sm .navbar-nav .nav-link {
+    padding-right: 0px;
+    padding-left: 0px; 
 }
 
 .all-vendors-label {
